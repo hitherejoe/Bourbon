@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Bourbon</string>
+
+    <!-- Transitions -->
+    <string name="transition_shot_image" translatable="false">shot_image_transition</string>
+    <string name="transition_shot_title" translatable="false">shot_title_transition</string>
+    <string name="transition_shot_like_image" translatable="false">shot_likes_image_transition</string>
+    <string name="transition_shot_like_text" translatable="false">shot_likes_text_transition</string>
+    <string name="transition_shot_header" translatable="false">shot_header_transition</string>
+
+
+    <string name="text_no_shots">No shots to display</string>
+
+
+    <string name="text_reload">Reload</string>
+    <string name="text_recent_comments">Recent Comments</string>
+    <string name="text_no_recent_comments">No recent Comments</string>
+    <string name="text_error_loading_comments">There was an error loading the comments</string>
+</resources>

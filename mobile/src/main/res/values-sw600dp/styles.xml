@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="ShotContainerStyle">
+        <item name="behavior_overlapTop">100dp</item>
+    </style>
+
+    <style name="ShotHeaderStyle">
+
+    </style>
+
+</resources>

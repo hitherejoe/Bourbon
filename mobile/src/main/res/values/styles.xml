@@ -1,0 +1,31 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.ShotActivity" parent="AppTheme.NoActionBar">
+    </style>
+
+    <style name="ShotContainerStyle">
+
+    </style>
+
+    <style name="ShotHeaderStyle">
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+</resources>
