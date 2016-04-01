@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.hitherejoe.bourbon.BourbonApplication;
+import com.hitherejoe.bourbon.common.BourbonApplication;
+import com.hitherejoe.bourbon.common.injection.module.ActivityModule;
 import com.hitherejoe.bourbon.injection.component.ActivityComponent;
 import com.hitherejoe.bourbon.injection.component.DaggerActivityComponent;
-import com.hitherejoe.bourbon.injection.module.ActivityModule;
 
 public class BaseActivity extends AppCompatActivity {
 

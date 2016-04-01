@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +19,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
+import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 
 import java.util.List;
@@ -34,12 +34,8 @@ public class ShotFragment extends Fragment implements ShotMvpView {
 
     public static final String ARGUMENT_SHOT = "ARGUMENT_SHOT";
 
-    @Inject
-    CommentAdapter mCommentsAdapter;
-    @Inject
-    ShotPresenter mShotPresenter;
-
-
+    @Inject CommentAdapter mCommentsAdapter;
+    @Inject ShotPresenter mShotPresenter;
 
     @Bind(R.id.layout_shot)
     View mRootView;

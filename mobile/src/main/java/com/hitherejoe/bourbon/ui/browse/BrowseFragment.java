@@ -22,11 +22,11 @@ import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourbon.util.DisplayMetricsUtil;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -39,7 +39,8 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         BrowseAdapter.ClickListener {
 
     @Inject BrowseAdapter mBrowseAdapter;
-    @Inject BrowsePresenter mBrowsePresenter;
+    @Inject
+    BrowsePresenter mBrowsePresenter;
 
     @Bind(R.id.recycler_view)
     RecyclerView mShotRecycler;
@@ -85,8 +86,10 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mShotRecycler.setHasFixedSize(true);
         mShotRecycler.setAdapter(mBrowseAdapter);
 
-        mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.colorAccent);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
+        mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(
+                com.hitherejoe.bourbon.common.R.color.colorAccent);
+        mSwipeRefreshLayout.setColorSchemeResources(
+                com.hitherejoe.bourbon.common.R.color.colorPrimaryDark);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

@@ -1,8 +1,8 @@
 package com.hitherejoe.bourbon.injection.component;
 
-import com.hitherejoe.bourbon.injection.PerActivity;
-import com.hitherejoe.bourbon.injection.module.ActivityModule;
-import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
+import com.hitherejoe.bourbon.common.injection.PerActivity;
+import com.hitherejoe.bourbon.common.injection.component.ApplicationComponent;
+import com.hitherejoe.bourbon.common.injection.module.ActivityModule;
 import com.hitherejoe.bourbon.ui.browse.BrowseFragment;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotFragment;
