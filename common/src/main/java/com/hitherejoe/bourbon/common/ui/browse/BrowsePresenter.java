@@ -12,6 +12,7 @@ import rx.SingleSubscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 public class BrowsePresenter extends BasePresenter<BrowseMvpView> {
 
@@ -49,6 +50,7 @@ public class BrowsePresenter extends BasePresenter<BrowseMvpView> {
 
                     @Override
                     public void onError(Throwable error) {
+                        Timber.e(error, "There was an error retrieving the shots");
                         getMvpView().hideProgress();
                         getMvpView().showError();
                     }

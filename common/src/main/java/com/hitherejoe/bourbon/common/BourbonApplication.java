@@ -3,9 +3,12 @@ package com.hitherejoe.bourbon.common;
 import android.app.Application;
 import android.content.Context;
 
+import com.bumptech.glide.request.target.ViewTarget;
 import com.hitherejoe.bourbon.common.injection.component.ApplicationComponent;
 import com.hitherejoe.bourbon.common.injection.component.DaggerApplicationComponent;
 import com.hitherejoe.bourbon.common.injection.module.ApplicationModule;
+
+import timber.log.Timber;
 
 public class BourbonApplication extends Application  {
 
@@ -15,8 +18,7 @@ public class BourbonApplication extends Application  {
     public void onCreate() {
         super.onCreate();
 
-       // if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
-
+        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
         mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .build();
