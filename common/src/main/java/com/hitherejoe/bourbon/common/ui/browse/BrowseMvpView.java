@@ -19,4 +19,6 @@ public interface BrowseMvpView extends MvpView {
 
     void showEmpty();
 
+    void hideErrorView();
+
 }

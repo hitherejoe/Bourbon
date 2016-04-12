@@ -192,4 +192,9 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
     public void showEmpty() {
 
     }
+
+    @Override
+    public void hideErrorView() {
+
+    }
 }

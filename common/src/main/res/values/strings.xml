@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Bourbon</string>
 
-    <string name="text_no_shots">No shots to display</string>
-
     <string name="text_reload">Reload</string>
     <string name="text_recent_comments">Recent Comments</string>
     <string name="text_no_recent_comments">No recent Comments</string>
     <string name="text_error_loading_comments">There was an error loading the comments</string>
+
+    <string name="text_error_loading_shots">Oops, something went wrong whilst retrieving the shots&#8230;</string>
+    <string name="text_no_shots">Oops, looks like there\'s no shots to display here&#8230;</string>
 </resources>

@@ -151,6 +151,13 @@ public class ShotFragment extends Fragment implements ShotMvpView {
     }
 
     @Override
+    public void showCommentsTitle(boolean hasComments) {
+        mCommentsTitleText.setText(getString(hasComments ?
+                R.string.text_recent_comments : R.string.text_no_recent_comments));
+        mCommentsTitleText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void showError() {
         mCommentsRecycler.setVisibility(View.GONE);
         mCommentsTitleText.setVisibility(View.GONE);
@@ -159,7 +166,6 @@ public class ShotFragment extends Fragment implements ShotMvpView {
 
     @Override
     public void showEmptyComments() {
-        mCommentsTitleText.setText(getString(R.string.text_no_recent_comments));
         mCommentsTitleText.setVisibility(View.VISIBLE);
         mCommentsRecycler.setVisibility(View.GONE);
     }

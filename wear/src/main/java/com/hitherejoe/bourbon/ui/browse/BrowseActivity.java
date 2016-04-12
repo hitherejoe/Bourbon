@@ -1,6 +1,5 @@
 package com.hitherejoe.bourbon.ui.browse;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.wearable.view.DotsPageIndicator;
@@ -22,7 +21,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import timber.log.Timber;
+import butterknife.OnClick;
 
 public class BrowseActivity extends BaseActivity implements BrowseMvpView {
 
@@ -74,9 +73,6 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
     public void showShots(List<Shot> shots) {
         mBrowseAdapter.setShots(shots);
         mBrowseAdapter.notifyDataSetChanged();
-        for (Shot shot : shots) {
-            Timber.e(shot.title);
-        }
     }
 
     @Override
@@ -86,11 +82,25 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
 
     @Override
     public void showError() {
-        Timber.e("ERROR");
+        mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_48dp);
+        mErrorText.setText(getString(R.string.text_error_loading_shots));
+        mErrorView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showEmpty() {
+        mErrorImage.setImageResource(R.drawable.ic_empty_glass_gray_48dp);
+        mErrorText.setText(getString(R.string.text_no_shots));
+        mErrorView.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void hideErrorView() {
+        mErrorView.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.layout_error)
+    public void onErrorLayoutClick() {
+        mBrowsePresenter.getShots(20, 0);
     }
 }

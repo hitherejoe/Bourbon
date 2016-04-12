@@ -45,6 +45,7 @@ public class ShotPresenter extends BasePresenter<ShotMvpView> {
                         } else {
                             getMvpView().showComments(comments);
                         }
+                        getMvpView().showCommentsTitle(!comments.isEmpty());
                     }
 
                     @Override

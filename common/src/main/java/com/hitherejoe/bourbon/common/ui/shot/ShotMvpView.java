@@ -17,4 +17,5 @@ public interface ShotMvpView extends MvpView {
 
     void showEmptyComments();
 
+    void showCommentsTitle(boolean hasComments);
 }

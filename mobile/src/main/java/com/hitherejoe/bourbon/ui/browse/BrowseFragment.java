@@ -2,11 +2,7 @@ package com.hitherejoe.bourbon.ui.browse;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -34,30 +30,24 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BrowseFragment extends Fragment implements BrowseMvpView,
         BrowseAdapter.ClickListener {
 
     @Inject BrowseAdapter mBrowseAdapter;
-    @Inject
-    BrowsePresenter mBrowsePresenter;
+    @Inject BrowsePresenter mBrowsePresenter;
 
-    @Bind(R.id.recycler_view)
-    RecyclerView mShotRecycler;
-    @Bind(R.id.swipe_to_refresh)
-    SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.toolbar_browse)
-    Toolbar mToolbar;
+    @Bind(R.id.recycler_view) RecyclerView mShotRecycler;
+    @Bind(R.id.swipe_to_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.toolbar_browse) Toolbar mToolbar;
 
-    @Bind(R.id.image_message)
-    ImageView mErrorImage;
-    @Bind(R.id.text_error_message)
-    TextView mErrorText;
+    @Bind(R.id.image_message) ImageView mErrorImage;
+    @Bind(R.id.text_error_message) TextView mErrorText;
+    @Bind(R.id.layout_error) View mErrorLayout;
 
-    @Bind(R.id.progress)
-    ProgressBar mRecyclerProgress;
+    @Bind(R.id.progress) ProgressBar mRecyclerProgress;
 
-    private boolean mIsLoading;
     private boolean mIsTabletLayout;
     private boolean mIsLargeTablet;
 
@@ -79,7 +69,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         mIsTabletLayout = DisplayMetricsUtil.isScreenW(600);
-        mIsLargeTablet  = DisplayMetricsUtil.isScreenW(800);
+        mIsLargeTablet = DisplayMetricsUtil.isScreenW(800);
 
         mBrowseAdapter.setClickListener(this);
         mShotRecycler.setLayoutManager(setLayoutManager());
@@ -93,8 +83,8 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-            //    mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(),
-              //          mBrowseAdapter.getCurrentPage());
+                mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(),
+                        mBrowseAdapter.getCurrentPage());
             }
         });
 
@@ -107,32 +97,32 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         if (!mIsTabletLayout) {
             layoutManager = new LinearLayoutManager(getActivity());
         } else {
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 6);
-                gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                    @Override
-                    public int getSpanSize(int position) {
-                        if (mIsLargeTablet) {
-                            // Designs for larger screens require a repeated pattern grid
-                            // every 5 items so we do a modulo of the position. The grid will be
-                            // alternating row lengths of 2 columns, followed by 3 columns.
-                            int positionMod = position % 5;
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 6);
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (mIsLargeTablet) {
+                        // Designs for larger screens require a repeated pattern grid
+                        // every 5 items so we do a modulo of the position. The grid will be
+                        // alternating row lengths of 2 columns, followed by 3 columns.
+                        int positionMod = position % 5;
 
-                            switch (positionMod) {
-                                case 0:
-                                case 1:
-                                    return 3;
-                                default:
-                                    return 2;
-                            }
-                        } else {
-                            // Designs for smaller tablet screens require a 2 column grid, so we
-                            // give each item a span of 3/6 columns to achieve this.
-                            return 3;
+                        switch (positionMod) {
+                            case 0:
+                            case 1:
+                                return 3;
+                            default:
+                                return 2;
                         }
+                    } else {
+                        // Designs for smaller tablet screens require a 2 column grid, so we
+                        // give each item a span of 3/6 columns to achieve this.
+                        return 3;
                     }
-                });
-                layoutManager = gridLayoutManager;
-            }
+                }
+            });
+            layoutManager = gridLayoutManager;
+        }
         return layoutManager;
     }
 
@@ -156,7 +146,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mBrowseAdapter.setShots(shots);
         mBrowseAdapter.notifyDataSetChanged();
         mShotRecycler.setVisibility(View.VISIBLE);
-        mIsLoading = false;
     }
 
     @Override
@@ -166,22 +155,27 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
 
     @Override
     public void showError() {
-        mIsLoading = false;
-
-        mErrorImage.setImageResource(R.drawable.bg_card);
-        mErrorText.setText("Error");
-        mErrorImage.setVisibility(View.VISIBLE);
-        mErrorText.setVisibility(View.VISIBLE);
+        mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
+        mErrorText.setText(getString(R.string.text_error_loading_shots));
+        mErrorLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void showEmpty() {
-        mIsLoading = false;
+        mErrorImage.setImageResource(R.drawable.ic_empty_glass_120dp);
+        mErrorText.setText(getString(R.string.text_no_shots));
+        mErrorLayout.setVisibility(View.VISIBLE);
+    }
 
-        mErrorImage.setImageResource(R.drawable.bg_card);
-        mErrorText.setText("Empty");
-        mErrorImage.setVisibility(View.VISIBLE);
-        mErrorText.setVisibility(View.VISIBLE);
+    @Override
+    public void hideErrorView() {
+        mErrorLayout.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.button_reload)
+    public void onReloadButtonClick() {
+        mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(),
+                mBrowseAdapter.getCurrentPage());
     }
 
     @Override
@@ -194,8 +188,8 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         //Pair likeTextParticipant = new Pair<>(likeText, ViewCompat.getTransitionName(likeText));
         //Pair head = new Pair<>(header, ViewCompat.getTransitionName(header));
         //ActivityOptionsCompat transitionActivityOptions =
-          //      ActivityOptionsCompat.makeSceneTransitionAnimation(
-            //            getActivity(), squareParticipant, toolbarParticipants, likeImageParticipant, likeTextParticipant, head);
+        //      ActivityOptionsCompat.makeSceneTransitionAnimation(
+        //            getActivity(), squareParticipant, toolbarParticipants, likeImageParticipant, likeTextParticipant, head);
         //startActivity(intent, transitionActivityOptions.toBundle());
         startActivity(intent);
     }

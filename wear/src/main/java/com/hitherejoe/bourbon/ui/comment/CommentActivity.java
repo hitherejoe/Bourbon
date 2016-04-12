@@ -37,8 +37,6 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     @Bind(R.id.pager_shots)
     ViewPager mShotsPager;
-    @Bind(R.id.page_indicator)
-    DotsPageIndicator mPageIndicator;
     @Bind(R.id.progress)
     ProgressBar mProgress;
     @Bind(R.id.layout_error)
@@ -47,6 +45,9 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     TextView mErrorText;
     @Bind(R.id.image_error)
     ImageView mErrorImage;
+
+    @Bind(R.id.page_indicator)
+    PagerIndicatorView mPagerIndicatorView;
 
     @Inject
     ShotPresenter mShotPresenter;
@@ -75,7 +76,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         mShotPresenter.attachView(this);
         mCommentAdapter = new CommentsAdapter(this);
         mShotsPager.setAdapter(mCommentAdapter);
-        //mPageIndicator.setPager(mShotsPager);
+
         mShotPresenter.getComments(shot.id);
     }
 
@@ -93,6 +94,8 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     public void showComments(List<Comment> comments) {
         mCommentAdapter.setComments(comments);
         mCommentAdapter.notifyDataSetChanged();
+        mPagerIndicatorView.attachViewPager(mShotsPager);
+        mPagerIndicatorView.bringToFront();
     }
 
     @Override
@@ -102,6 +105,11 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     @Override
     public void showEmptyComments() {
+
+    }
+
+    @Override
+    public void showCommentsTitle(boolean hasComments) {
 
     }
 

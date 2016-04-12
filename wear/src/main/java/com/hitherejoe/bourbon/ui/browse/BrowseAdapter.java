@@ -1,36 +1,22 @@
 package com.hitherejoe.bourbon.ui.browse;
 
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.wearable.view.CardFragment;
-import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.ui.comment.CommentActivity;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class BrowseAdapter extends GridPagerAdapter {
 
@@ -121,6 +107,8 @@ public class BrowseAdapter extends GridPagerAdapter {
         TextView titleView;
         TextView likeText;
         TextView viewText;
+        ImageView userImage;
+        TextView userName;
 
         View frameLayout;
 
@@ -129,12 +117,16 @@ public class BrowseAdapter extends GridPagerAdapter {
             titleView = (TextView) frameLayout.findViewById(R.id.text_title);
             likeText = (TextView) frameLayout.findViewById(R.id.text_like_count);
             viewText = (TextView) frameLayout.findViewById(R.id.text_view_count);
+            userImage = (ImageView) frameLayout.findViewById(R.id.image_avatar);
+            userName = (TextView) frameLayout.findViewById(R.id.text_user);
         }
 
         void bind(final Shot shot) {
             titleView.setText(shot.title);
             likeText.setText(shot.likes_count);
             viewText.setText(shot.views_count);
+            userName.setText(shot.user.username);
+            Glide.with(mContext).load(shot.user.avatarUrl).into(userImage);
         }
     }
 }
