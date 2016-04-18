@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.ui.shot;
+package com.hitherejoe.bourbon.ui.shot.widget;
 
 import android.content.Context;
 import android.graphics.Color;

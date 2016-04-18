@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_avatar"
@@ -13,66 +11,46 @@
         android:layout_centerVertical="true"
         android:layout_margin="16dp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_shot_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@id/image_avatar"
-        android:layout_toStartOf="@+id/layout_views"
-        android:orientation="vertical">
+        android:layout_toStartOf="@+id/text_view_count"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_title" />
 
-        <TextView
-            android:id="@+id/text_shot_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:ellipsize="end"
-            android:gravity="start"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large_title" />
+    <TextView
+        android:id="@+id/text_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_shot_name"
+        android:layout_below="@id/text_shot_name"
+        android:ellipsize="end"
+        android:gravity="start"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_body" />
 
-        <TextView
-            android:id="@+id/text_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:ellipsize="end"
-            android:gravity="start"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large_body" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_views"
+    <TextView
+        android:id="@+id/text_view_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
         android:layout_toStartOf="@+id/view_separator"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/image_views"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_eye_40dp" />
-
-        <TextView
-            android:id="@+id/text_view_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/ic_eye_40dp"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_body" />
 
     <View
         android:id="@+id/view_separator"
@@ -80,37 +58,24 @@
         android:layout_height="32dp"
         android:layout_centerVertical="true"
         android:layout_margin="16dp"
-        android:layout_toStartOf="@+id/layout_likes"
+        android:layout_toStartOf="@+id/text_like_count"
         android:background="@color/white" />
 
-    <LinearLayout
-        android:id="@+id/layout_likes"
+    <TextView
+        android:id="@+id/text_like_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="28dp"
         android:layout_marginStart="16dp"
-        android:orientation="vertical">
+        android:layout_marginTop="4dp"
+        android:drawablePadding="4dp"
+        android:drawableTop="@drawable/ic_heart_32dp"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_large_body" />
 
-        <ImageView
-            android:id="@+id/image_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_heart_32dp" />
-
-        <TextView
-            android:id="@+id/text_like_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:gravity="center_horizontal"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+</merge>

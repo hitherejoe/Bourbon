@@ -4,26 +4,17 @@ import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v17.leanback.app.DetailsFragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.ViewPropertyAnimator;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
 import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
+import com.hitherejoe.bourbon.ui.shot.widget.PagerIndicatorView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -66,7 +57,7 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activty_shot_comments);
+        setContentView(R.layout.activty_shot);
         activityComponent().inject(this);
         ButterKnife.bind(this);
 

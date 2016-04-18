@@ -1,22 +1,17 @@
 package com.hitherejoe.bourbon.ui.shot;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.ui.shot.widget.CommentView;
+import com.hitherejoe.bourbon.ui.shot.widget.ShotView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import javax.inject.Inject;
 
 public class ShotAdapter extends PagerAdapter {
 
