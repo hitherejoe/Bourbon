@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
@@ -22,7 +23,9 @@
                 android:id="@+id/image_avatar"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:layout_margin="16dp" />
+                android:layout_margin="12dp"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="1dp" />
 
             <TextView
                 android:id="@+id/text_user"
@@ -35,12 +38,20 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/gray" />
+
         <TextView
             android:id="@+id/text_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
             android:textColor="@color/black_86p" />
 
     </LinearLayout>

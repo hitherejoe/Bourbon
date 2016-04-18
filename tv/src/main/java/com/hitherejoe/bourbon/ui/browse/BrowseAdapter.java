@@ -7,12 +7,10 @@ import android.support.v17.leanback.widget.PresenterSelector;
 
 public class BrowseAdapter extends ArrayObjectAdapter {
 
-    private Context mContext;
     private CardPresenter mPresenter;
 
-    public BrowseAdapter(Context context) {
-        mContext = context;
-        mPresenter = new CardPresenter(context);
+    public BrowseAdapter() {
+        mPresenter = new CardPresenter();
         setPresenterSelector();
     }
 

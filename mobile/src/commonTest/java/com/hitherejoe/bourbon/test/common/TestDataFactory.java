@@ -46,7 +46,6 @@ public class TestDataFactory {
         Comment comment = new Comment();
         comment.id = sRandom.nextInt();
         comment.body = randomUuid();
-        comment.createdAt = randomUuid();
         comment.user = makeUser(sRandom.nextInt());
         return comment;
     }

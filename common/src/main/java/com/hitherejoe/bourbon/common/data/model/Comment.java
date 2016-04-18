@@ -7,7 +7,6 @@ public class Comment implements Parcelable {
 
     public int id;
     public String body;
-    public String createdAt;
     public User user;
 
     @Override
@@ -19,7 +18,6 @@ public class Comment implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
         dest.writeString(this.body);
-        dest.writeString(this.createdAt);
         dest.writeParcelable(this.user, flags);
     }
 
@@ -29,7 +27,6 @@ public class Comment implements Parcelable {
     protected Comment(Parcel in) {
         this.id = in.readInt();
         this.body = in.readString();
-        this.createdAt = in.readString();
         this.user = in.readParcelable(User.class.getClassLoader());
     }
 

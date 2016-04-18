@@ -21,6 +21,7 @@
     <application
         android:name=".common.BourbonApplication"
         android:allowBackup="true"
+        android:banner="@drawable/banner"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="landscape"
@@ -39,7 +40,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.shot.ShotActivity"/>
+        <activity android:name=".ui.shot.ShotActivity" />
 
     </application>
 

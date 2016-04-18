@@ -59,7 +59,7 @@ public class DataManagerTest {
         stubBourbonServiceGetComments(Single.just(comments));
 
         TestSubscriber<List<Comment>> testSubscriber = new TestSubscriber<>();
-        mDataManager.getComments(TestDataFactory.randomInt()).subscribe(testSubscriber);
+        mDataManager.getComments(TestDataFactory.randomInt(), 0, 0).subscribe(testSubscriber);
         testSubscriber.assertCompleted();
         testSubscriber.assertValue(comments);
     }
@@ -69,7 +69,7 @@ public class DataManagerTest {
     }
 
     private void stubBourbonServiceGetComments(Single<List<Comment>> single) {
-        when(mMockBourbonService.getComments(anyInt(), anyString())).thenReturn(single);
+        when(mMockBourbonService.getComments(anyInt(), anyString(), anyInt(), anyInt())).thenReturn(single);
     }
 
 }

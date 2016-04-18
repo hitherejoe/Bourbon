@@ -30,7 +30,7 @@
             android:gravity="start"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/text_large_title" />
 
         <TextView
             android:id="@+id/text_user_name"
@@ -41,7 +41,7 @@
             android:gravity="start"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/text_large_body" />
 
     </LinearLayout>
 

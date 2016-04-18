@@ -57,16 +57,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         Comment comment = mComments.get(position);
         holder.mComment = comment;
         holder.userNameText.setText(comment.user.username);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-
-        try {
-            Date convertedDate = dateFormat.parse(comment.createdAt);
-            holder.timeText.setText(convertedDate.toString());
-            //SimpleDateFormat sdfmonth = new SimpleDateFormat("MM/dd");
-            // tring monthday = sdfmonth.format(convertedDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         holder.commentText.setText(Html.fromHtml(comment.body));
         Glide.with(holder.itemView.getContext())
                 .load(comment.user.avatarUrl).into(holder.userImage);

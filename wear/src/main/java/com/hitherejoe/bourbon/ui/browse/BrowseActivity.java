@@ -56,7 +56,7 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
         mPageIndicator.setDotColor(ContextCompat.getColor(this, R.color.colorPrimary));
         mPageIndicator.setDotColorSelected(ContextCompat.getColor(this, R.color.colorAccent));
         mPageIndicator.setDotRadius(4);
-        mBrowsePresenter.getShots(20, 0);
+        mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
     }
 
     @Override

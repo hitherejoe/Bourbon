@@ -108,7 +108,7 @@ public class ShotFragment extends Fragment implements ShotMvpView {
         mCommentsRecycler.setHasFixedSize(true);
         mCommentsRecycler.setAdapter(mCommentsAdapter);
 
-        mShotPresenter.getComments(shot.id);
+        mShotPresenter.getComments(shot.id, 0, 0);
         Glide.with(this).load(shot.images.normal)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mShotImage);
         mTitleText.setText(shot.title);

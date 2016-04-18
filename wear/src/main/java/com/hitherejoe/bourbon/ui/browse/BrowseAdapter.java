@@ -15,6 +15,7 @@ import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.ui.comment.CommentActivity;
 
+import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class BrowseAdapter extends GridPagerAdapter {
 
     @Override
     public int getColumnCount(int i) {
-        return 2;
+        return 4;
     }
 
     @Override
@@ -61,9 +62,23 @@ public class BrowseAdapter extends GridPagerAdapter {
             //  }
             return viewHolder.frameLayout;
         } else if (i1 == 1) {
+            View view = (View) LayoutInflater.from(mContext).inflate(R.layout.item_user, viewGroup, false);
+            UserViewHolder viewHolder = new UserViewHolder(view);
+            viewHolder.bind(shot);
+            view.setTag(viewHolder);
+            viewGroup.addView(view);
+            return viewHolder.frameLayout;
+        } else if (i1 == 2) {
             View view = (View) LayoutInflater.from(mContext).inflate(R.layout.item_detail, viewGroup, false);
             DetailViewHolder viewHolder = new DetailViewHolder(view);
-            viewHolder.bind(shot);
+            viewHolder.bind(shot.likes_count, R.drawable.ic_favorite_accent_48dp);
+            view.setTag(viewHolder);
+            viewGroup.addView(view);
+            return viewHolder.frameLayout;
+        } else if (i1 == 3) {
+            View view = (View) LayoutInflater.from(mContext).inflate(R.layout.item_detail, viewGroup, false);
+            DetailViewHolder viewHolder = new DetailViewHolder(view);
+            viewHolder.bind(shot.views_count, R.drawable.ic_visibility_accent_48dp);
             view.setTag(viewHolder);
             viewGroup.addView(view);
             return viewHolder.frameLayout;
@@ -103,30 +118,45 @@ public class BrowseAdapter extends GridPagerAdapter {
         }
     }
 
-    class DetailViewHolder {
+    class UserViewHolder {
         TextView titleView;
-        TextView likeText;
-        TextView viewText;
         ImageView userImage;
         TextView userName;
 
         View frameLayout;
 
-        public DetailViewHolder(View frameLayout) {
+        public UserViewHolder(View frameLayout) {
             this.frameLayout = frameLayout;
             titleView = (TextView) frameLayout.findViewById(R.id.text_title);
-            likeText = (TextView) frameLayout.findViewById(R.id.text_like_count);
-            viewText = (TextView) frameLayout.findViewById(R.id.text_view_count);
             userImage = (ImageView) frameLayout.findViewById(R.id.image_avatar);
             userName = (TextView) frameLayout.findViewById(R.id.text_user);
         }
 
         void bind(final Shot shot) {
             titleView.setText(shot.title);
-            likeText.setText(shot.likes_count);
-            viewText.setText(shot.views_count);
             userName.setText(shot.user.username);
             Glide.with(mContext).load(shot.user.avatarUrl).into(userImage);
         }
+    }
+
+    class DetailViewHolder {
+        TextView countText;
+        View frameLayout;
+
+        public DetailViewHolder(View frameLayout) {
+            this.frameLayout = frameLayout;
+            countText = (TextView) frameLayout.findViewById(R.id.text_count);
+        }
+
+        void bind(String text, int iconRes) {
+            countText.setText(formatString(text));
+            countText.setCompoundDrawablesWithIntrinsicBounds(0, iconRes, 0, 0);
+        }
+    }
+
+    private String formatString(String number) {
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        int n = Integer.valueOf(number);
+        return formatter.format(n);
     }
 }

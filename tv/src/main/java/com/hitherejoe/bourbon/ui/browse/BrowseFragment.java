@@ -19,6 +19,7 @@ import android.util.DisplayMetrics;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.DataManager;
 import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.common.ui.browse.*;
@@ -32,10 +33,8 @@ import javax.inject.Inject;
 
 public class BrowseFragment extends VerticalGridFragment implements BrowseMvpView {
 
-    @Inject
-    DataManager mDataManager;
-    @Inject
-    BrowsePresenter mBrowsePresenter;
+    @Inject BrowsePresenter mBrowsePresenter;
+    @Inject DataManager mDataManager;
 
     private static final int NUM_COLUMNS = 5;
     private static final int BACKGROUND_UPDATE_DELAY = 300;
@@ -46,7 +45,6 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
     private Handler mHandler;
     private Runnable mBackgroundRunnable;
     private BrowseAdapter mBrowseAdapter;
-    private boolean mIsStopping;
 
     public static BrowseFragment newInstance() {
         return new BrowseFragment();
@@ -62,11 +60,11 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
         prepareBackgroundManager();
         setSearchAffordanceColor(ContextCompat.getColor(getActivity(),
                 com.hitherejoe.bourbon.common.R.color.colorAccent));
-        mBrowseAdapter = new BrowseAdapter(getActivity());
+        mBrowseAdapter = new BrowseAdapter();
         setAdapter(mBrowseAdapter);
         setOnItemViewSelectedListener(mOnItemViewSelectedListener);
         setOnItemViewClickedListener(mOnItemViewClickedListener);
-        mBrowsePresenter.getShots(20, 0);
+        mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
     }
 
     @Override
@@ -80,16 +78,9 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        mIsStopping = false;
-    }
-
-    @Override
     public void onStop() {
         super.onStop();
         mBackgroundManager.release();
-        mIsStopping = true;
     }
 
     private void prepareBackgroundManager() {
@@ -106,6 +97,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
         VerticalGridPresenter gridPresenter = new VerticalGridPresenter();
         gridPresenter.setNumberOfColumns(NUM_COLUMNS);
         setGridPresenter(gridPresenter);
+        setBadgeDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.badge));
 
         mHandler = new Handler();
     }

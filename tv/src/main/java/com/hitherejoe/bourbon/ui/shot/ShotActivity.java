@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v17.leanback.app.DetailsFragment;
+import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -16,14 +17,22 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
+import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
+import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import timber.log.Timber;
 
-public class ShotActivity extends BaseActivity {
+public class ShotActivity extends BaseActivity implements ShotMvpView {
 
     public static final String EXTRA_SHOT = "EXTRA_SHOT";
 
@@ -35,14 +44,18 @@ public class ShotActivity extends BaseActivity {
             KeyEvent.KEYCODE_DPAD_RIGHT
     };
 
-    @Bind(R.id.image_shot)
-    ImageView mShotImage;
+    @Bind(R.id.pager_shot)
+    ViewPager mShotPager;
 
-    @Bind(R.id.detail_shot)
-    DetailView mShotDetail;
+    ShotAdapter mShotAdapter;
+    @Inject ShotPresenter mShotPresenter;
+
+    @Bind(R.id.page_indicator)
+    PagerIndicatorView mPagerIndicatorView;
 
     private boolean mIsDetailViewAnimating = false;
     private boolean mIsDetailViewShowing = true;
+    private Shot mShot;
 
     public static Intent newStartIntent(Context context, Shot shot) {
         Intent intent = new Intent(context, ShotActivity.class);
@@ -53,24 +66,25 @@ public class ShotActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shot);
+        setContentView(R.layout.activty_shot_comments);
+        activityComponent().inject(this);
         ButterKnife.bind(this);
 
-        Shot shot = getIntent().getParcelableExtra(EXTRA_SHOT);
+        mShotPresenter.attachView(this);
 
-        if (shot == null) {
+        mShotAdapter = new ShotAdapter(this);
+
+        mShot = getIntent().getParcelableExtra(EXTRA_SHOT);
+
+        if (mShot == null) {
             throw new IllegalArgumentException("ShotActivity requires a shot instance!");
         }
 
-        Glide.with(this).load(shot.images.getImage()).into(mShotImage);
-        mShotDetail.setShot(shot);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                animateViewOut();
-            }
-        }, 2000);
+        //mShotAdapter.setShot(shot);
+        mShotAdapter.setShot(mShot);
+        //  mShotAdapter.setComments(objects);
+        mShotPager.setAdapter(mShotAdapter);
+        mShotPresenter.getComments(mShot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
     }
 
     @Override
@@ -89,9 +103,9 @@ public class ShotActivity extends BaseActivity {
     }
 
     private void animateViewOut() {
-        mShotDetail.animate().translationY(140 + mShotDetail.getHeight())
-                .setInterpolator(new LinearOutSlowInInterpolator())
-                .setListener(mAnimatorListener).start();
+       // mShotDetail.animate().translationY(140 + mShotDetail.getHeight())
+         //       .setInterpolator(new LinearOutSlowInInterpolator())
+           //     .setListener(mAnimatorListener).start();
     }
 
     private Animator.AnimatorListener mAnimatorListener = new Animator.AnimatorListener() {
@@ -117,4 +131,36 @@ public class ShotActivity extends BaseActivity {
         }
     };
 
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showComments(List<Comment> comments) {
+        mShotAdapter.setComments(comments);
+        mShotAdapter.notifyDataSetChanged();
+        mPagerIndicatorView.attachViewPager(mShotPager);
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public void showEmptyComments() {
+
+    }
+
+    @Override
+    public void showCommentsTitle(boolean hasComments) {
+
+    }
 }

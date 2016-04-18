@@ -89,7 +89,7 @@ public class PagerIndicatorView extends LinearLayout {
                 new LinearLayout.LayoutParams(mIndicatorSize, mIndicatorSize);
         params.setMargins(mIndicatorMargin, mIndicatorMargin, mIndicatorMargin, mIndicatorMargin);
         view.setLayoutParams(params);
-        view.setBackgroundResource(R.drawable.white_circle);
+        view.setBackgroundResource(R.drawable.circle_accent);
         return view;
     }
 
@@ -97,10 +97,10 @@ public class PagerIndicatorView extends LinearLayout {
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             if (i == position) {
-                child.setBackgroundResource(R.drawable.white_circle);
+                child.setBackgroundResource(R.drawable.circle_accent);
                 scaleViewTo(child, 1.5f, animated);
             } else {
-                child.setBackgroundResource(R.drawable.purple_cricle);
+                child.setBackgroundResource(R.drawable.circle_primary_dark);
                 scaleViewTo(child, 1, animated);
             }
         }

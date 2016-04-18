@@ -28,7 +28,9 @@ public class DataManager {
                 page);
     }
 
-    public Single<List<Comment>> getComments(int id) {
-        return mBourbonService.getComments(id, BuildConfig.DRIBBBLE_ACCESS_TOKEN);
+    public Single<List<Comment>> getComments(int id, int perPage, int page) {
+        return mBourbonService.getComments(id, BuildConfig.DRIBBBLE_ACCESS_TOKEN,
+                perPage,
+                page);
     }
 }

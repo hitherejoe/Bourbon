@@ -77,7 +77,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         mCommentAdapter = new CommentsAdapter(this);
         mShotsPager.setAdapter(mCommentAdapter);
 
-        mShotPresenter.getComments(shot.id);
+        mShotPresenter.getComments(shot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
     }
 
     @Override

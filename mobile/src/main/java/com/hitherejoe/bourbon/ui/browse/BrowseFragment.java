@@ -83,8 +83,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(),
-                        mBrowseAdapter.getCurrentPage());
+                mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
             }
         });
 

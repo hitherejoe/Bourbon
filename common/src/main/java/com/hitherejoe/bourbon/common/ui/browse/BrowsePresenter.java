@@ -16,6 +16,10 @@ import timber.log.Timber;
 
 public class BrowsePresenter extends BasePresenter<BrowseMvpView> {
 
+    // We'll handle pagination in the future...
+    public static final int SHOT_COUNT = 20;
+    public static final int SHOT_PAGE = 0;
+
     private final DataManager mDataManager;
     private Subscription mSubscription;
 

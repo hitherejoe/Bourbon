@@ -51,7 +51,7 @@ public class ShotPresenterTest {
     public void getCommentsSuccessful() {
         List<Comment> comments = TestDataFactory.makeComments(5);
         stubDataManagerGetComments(Single.just(comments));
-        mShotPresenter.getComments(TestDataFactory.randomInt());
+        mShotPresenter.getComments(TestDataFactory.randomInt(), 0, 0);
         verify(mMockShotMvpView).showProgress();
         verify(mMockShotMvpView).showComments(comments);
         verify(mMockShotMvpView).hideProgress();
@@ -61,7 +61,7 @@ public class ShotPresenterTest {
     public void getCommentsEmpty() {
         List<Comment> comments = new ArrayList<>();
         stubDataManagerGetComments(Single.just(comments));
-        mShotPresenter.getComments(TestDataFactory.randomInt());
+        mShotPresenter.getComments(TestDataFactory.randomInt(), 0, 0);
         verify(mMockShotMvpView).showProgress();
         verify(mMockShotMvpView).showEmptyComments();
         verify(mMockShotMvpView).hideProgress();
@@ -70,14 +70,14 @@ public class ShotPresenterTest {
     @Test
     public void getCommentsFailure() {
         stubDataManagerGetComments(Single.<List<Comment>>error(new RuntimeException()));
-        mShotPresenter.getComments(TestDataFactory.randomInt());
+        mShotPresenter.getComments(TestDataFactory.randomInt(), 0, 0);
         verify(mMockShotMvpView).showProgress();
         verify(mMockShotMvpView).showError();
         verify(mMockShotMvpView).hideProgress();
     }
 
     private void stubDataManagerGetComments(Single<List<Comment>> single) {
-        when(mMockDataManager.getComments(anyInt())).thenReturn(single);
+        when(mMockDataManager.getComments(anyInt(), anyInt(), anyInt())).thenReturn(single);
     }
 
 }
