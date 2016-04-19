@@ -5,7 +5,7 @@ import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
 import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.test.common.TestDataFactory;
-import com.hitherejoe.bourbon.util.RxSchedulersOverrideRule;
+import com.hitherejoe.bourbon.common.util.RxSchedulersOverrideRule;
 
 import org.junit.After;
 import org.junit.Before;

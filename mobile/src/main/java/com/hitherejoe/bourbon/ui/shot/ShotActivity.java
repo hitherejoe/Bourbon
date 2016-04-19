@@ -3,27 +3,10 @@ package com.hitherejoe.bourbon.ui.shot;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
-
-import java.util.List;
-
-import javax.inject.Inject;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class ShotActivity extends BaseActivity {
 

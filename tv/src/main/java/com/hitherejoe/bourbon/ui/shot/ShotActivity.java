@@ -39,7 +39,8 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
     ViewPager mShotPager;
 
     ShotAdapter mShotAdapter;
-    @Inject ShotPresenter mShotPresenter;
+    @Inject
+    ShotPresenter mShotPresenter;
 
     @Bind(R.id.page_indicator)
     PagerIndicatorView mPagerIndicatorView;
@@ -91,12 +92,6 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
         }
 
         return super.dispatchKeyEvent(event);
-    }
-
-    private void animateViewOut() {
-       // mShotDetail.animate().translationY(140 + mShotDetail.getHeight())
-         //       .setInterpolator(new LinearOutSlowInInterpolator())
-           //     .setListener(mAnimatorListener).start();
     }
 
     private Animator.AnimatorListener mAnimatorListener = new Animator.AnimatorListener() {

@@ -6,8 +6,8 @@ import android.view.MenuItem;
 
 import com.hitherejoe.bourbon.common.BourbonApplication;
 import com.hitherejoe.bourbon.common.injection.module.ActivityModule;
-import com.hitherejoe.bourbon.injection.component.ActivityComponent;
-import com.hitherejoe.bourbon.injection.component.DaggerActivityComponent;
+import com.hitherejoe.bourbon.component.ActivityComponent;
+import com.hitherejoe.bourbon.component.DaggerActivityComponent;
 
 public class BaseActivity extends Activity {
 

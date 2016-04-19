@@ -35,7 +35,8 @@ public class ShotFragment extends Fragment implements ShotMvpView {
     public static final String ARGUMENT_SHOT = "ARGUMENT_SHOT";
 
     @Inject CommentAdapter mCommentsAdapter;
-    @Inject ShotPresenter mShotPresenter;
+    @Inject
+    ShotPresenter mShotPresenter;
 
     @Bind(R.id.layout_shot)
     View mRootView;

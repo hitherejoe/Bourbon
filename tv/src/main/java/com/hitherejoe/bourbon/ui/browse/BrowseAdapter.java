@@ -1,6 +1,5 @@
 package com.hitherejoe.bourbon.ui.browse;
 
-import android.content.Context;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.PresenterSelector;

@@ -3,8 +3,8 @@ package com.hitherejoe.bourbon.runner;
 import android.os.Bundle;
 import android.support.test.espresso.Espresso;
 
-import com.hitherejoe.bourbon.util.RxIdlingExecutionHook;
-import com.hitherejoe.bourbon.util.RxIdlingResource;
+import com.hitherejoe.bourbon.common.util.RxIdlingExecutionHook;
+import com.hitherejoe.bourbon.common.util.RxIdlingResource;
 
 import rx.plugins.RxJavaPlugins;
 

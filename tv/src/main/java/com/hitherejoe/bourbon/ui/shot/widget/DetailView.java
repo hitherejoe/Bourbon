@@ -3,7 +3,9 @@ package com.hitherejoe.bourbon.ui.shot.widget;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.hitherejoe.bourbon.common.data.model.Shot;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class DetailView extends RelativeLayout {
 
@@ -58,6 +61,9 @@ public class DetailView extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.view_shot_detail, this);
         ButterKnife.bind(this);
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        setFocusable(true);
+        setFocusableInTouchMode(true);
+        requestFocus();
     }
 
     public void setShot(Shot shot) {

@@ -22,7 +22,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.DataManager;
 import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.browse.*;
+import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 
@@ -33,7 +34,8 @@ import javax.inject.Inject;
 
 public class BrowseFragment extends VerticalGridFragment implements BrowseMvpView {
 
-    @Inject BrowsePresenter mBrowsePresenter;
+    @Inject
+    BrowsePresenter mBrowsePresenter;
     @Inject DataManager mDataManager;
 
     private static final int NUM_COLUMNS = 5;

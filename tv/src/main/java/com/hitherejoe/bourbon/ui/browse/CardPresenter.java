@@ -63,7 +63,9 @@ public class CardPresenter extends Presenter {
 
             final ImageCardView cardView = (ImageCardView) viewHolder.view;
             cardView.setTitleText(shot.title);
-            cardView.setContentText(Html.fromHtml(shot.description));
+            if (shot.description != null) {
+                cardView.setContentText(Html.fromHtml(shot.description));
+            }
             cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT);
 
             Glide.with(cardView.getContext())

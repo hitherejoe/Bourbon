@@ -3,13 +3,11 @@ package com.hitherejoe.bourbon.ui.comment;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
-import android.support.wearable.view.GridPagerAdapter;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;

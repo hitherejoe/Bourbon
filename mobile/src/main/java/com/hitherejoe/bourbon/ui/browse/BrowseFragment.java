@@ -22,7 +22,7 @@ import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
 import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
-import com.hitherejoe.bourbon.util.DisplayMetricsUtil;
+import com.hitherejoe.bourbon.common.util.DisplayMetricsUtil;
 
 import java.util.List;
 

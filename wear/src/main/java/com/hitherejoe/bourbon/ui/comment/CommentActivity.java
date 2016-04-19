@@ -3,10 +3,7 @@ package com.hitherejoe.bourbon.ui.comment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.wearable.view.DotsPageIndicator;
-import android.support.wearable.view.GridViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -15,12 +12,9 @@ import android.widget.TextView;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
 import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
-import com.hitherejoe.bourbon.ui.browse.BrowseAdapter;
 
 import java.util.List;
 

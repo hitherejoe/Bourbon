@@ -3,7 +3,6 @@ package com.hitherejoe.bourbon.common;
 import android.app.Application;
 import android.content.Context;
 
-import com.bumptech.glide.request.target.ViewTarget;
 import com.hitherejoe.bourbon.common.injection.component.ApplicationComponent;
 import com.hitherejoe.bourbon.common.injection.component.DaggerApplicationComponent;
 import com.hitherejoe.bourbon.common.injection.module.ApplicationModule;
