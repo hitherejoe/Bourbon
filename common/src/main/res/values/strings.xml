@@ -2,6 +2,7 @@
     <string name="app_name">Bourbon</string>
 
     <string name="text_reload">Reload</string>
+    <string name="text_check_again">Check Again</string>
     <string name="text_recent_comments">Recent Comments</string>
     <string name="text_no_recent_comments">No recent Comments</string>
     <string name="text_error_loading_comments">There was an error loading the comments</string>

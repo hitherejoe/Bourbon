@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
 import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
-import com.hitherejoe.bourbon.common.util.DisplayMetricsUtil;
+import com.hitherejoe.bourbon.util.DisplayMetricsUtil;
 
 import java.util.List;
 
@@ -38,15 +39,14 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     @Inject BrowseAdapter mBrowseAdapter;
     @Inject BrowsePresenter mBrowsePresenter;
 
+    @Bind(R.id.button_message) Button mMessageButton;
+    @Bind(R.id.image_message) ImageView mMessageImage;
+    @Bind(R.id.progress) ProgressBar mRecyclerProgress;
     @Bind(R.id.recycler_view) RecyclerView mShotRecycler;
     @Bind(R.id.swipe_to_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.text_error_message) TextView mMessageText;
     @Bind(R.id.toolbar_browse) Toolbar mToolbar;
-
-    @Bind(R.id.image_message) ImageView mErrorImage;
-    @Bind(R.id.text_error_message) TextView mErrorText;
-    @Bind(R.id.layout_error) View mErrorLayout;
-
-    @Bind(R.id.progress) ProgressBar mRecyclerProgress;
+    @Bind(R.id.layout_message) View mMessageLayout;
 
     private boolean mIsTabletLayout;
     private boolean mIsLargeTablet;
@@ -56,7 +56,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         ((BaseActivity) getActivity()).activityComponent().inject(this);
-        getActivity().postponeEnterTransition();
     }
 
     @Override
@@ -71,7 +70,14 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mIsTabletLayout = DisplayMetricsUtil.isScreenW(600);
         mIsLargeTablet = DisplayMetricsUtil.isScreenW(800);
 
+        setupViews();
+        mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
+        return fragmentView;
+    }
+
+    private void setupViews() {
         mBrowseAdapter.setClickListener(this);
+
         mShotRecycler.setLayoutManager(setLayoutManager());
         mShotRecycler.setHasFixedSize(true);
         mShotRecycler.setAdapter(mBrowseAdapter);
@@ -86,9 +92,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
                 mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
             }
         });
-
-        mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(), mBrowseAdapter.getCurrentPage());
-        return fragmentView;
     }
 
     private RecyclerView.LayoutManager setLayoutManager() {
@@ -101,9 +104,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
                 @Override
                 public int getSpanSize(int position) {
                     if (mIsLargeTablet) {
-                        // Designs for larger screens require a repeated pattern grid
-                        // every 5 items so we do a modulo of the position. The grid will be
-                        // alternating row lengths of 2 columns, followed by 3 columns.
                         int positionMod = position % 5;
 
                         switch (positionMod) {
@@ -114,8 +114,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
                                 return 2;
                         }
                     } else {
-                        // Designs for smaller tablet screens require a 2 column grid, so we
-                        // give each item a span of 3/6 columns to achieve this.
                         return 3;
                     }
                 }
@@ -124,6 +122,19 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         }
         return layoutManager;
     }
+
+    @OnClick(R.id.button_reload)
+    public void onReloadButtonClick() {
+        mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, mBrowsePresenter.SHOT_PAGE);
+    }
+
+    @Override
+    public void onShotClick(Shot shot) {
+        Intent intent = ShotActivity.getStartIntent(getActivity(), shot);
+        startActivity(intent);
+    }
+
+    /** Browse MVP View method implementation **/
 
     @Override
     public void showProgress() {
@@ -148,48 +159,26 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     }
 
     @Override
-    public void setComplete() {
-        mBrowseAdapter.setIsLastPage(true);
-    }
-
-    @Override
     public void showError() {
-        mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
-        mErrorText.setText(getString(R.string.text_error_loading_shots));
-        mErrorLayout.setVisibility(View.VISIBLE);
+        mShotRecycler.setVisibility(View.GONE);
+        mMessageImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
+        mMessageText.setText(getString(R.string.text_error_loading_shots));
+        mMessageButton.setText(getString(R.string.text_reload));
+        showMessageLayout(false);
     }
 
     @Override
     public void showEmpty() {
-        mErrorImage.setImageResource(R.drawable.ic_empty_glass_120dp);
-        mErrorText.setText(getString(R.string.text_no_shots));
-        mErrorLayout.setVisibility(View.VISIBLE);
+        mShotRecycler.setVisibility(View.GONE);
+        mMessageImage.setImageResource(R.drawable.ic_empty_glass_120dp);
+        mMessageText.setText(getString(R.string.text_no_shots));
+        mMessageButton.setText(getString(R.string.text_check_again));
+        showMessageLayout(false);
     }
 
     @Override
-    public void hideErrorView() {
-        mErrorLayout.setVisibility(View.GONE);
+    public void showMessageLayout(boolean show) {
+        mMessageLayout.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    @OnClick(R.id.button_reload)
-    public void onReloadButtonClick() {
-        mBrowsePresenter.getShots(mBrowseAdapter.getPageCount(),
-                mBrowseAdapter.getCurrentPage());
-    }
-
-    @Override
-    public void onShotClick(Shot shot, ImageView shotImage, TextView titleText, ImageView likeImage, View likeText, View header) {
-
-        Intent intent = ShotActivity.getStartIntent(getActivity(), shot);
-        //Pair squareParticipant = new Pair<>(shotImage, ViewCompat.getTransitionName(shotImage));
-        //Pair toolbarParticipants = new Pair<>(titleText, ViewCompat.getTransitionName(titleText));
-        //Pair likeImageParticipant = new Pair<>(likeImage, ViewCompat.getTransitionName(likeImage));
-        //Pair likeTextParticipant = new Pair<>(likeText, ViewCompat.getTransitionName(likeText));
-        //Pair head = new Pair<>(header, ViewCompat.getTransitionName(header));
-        //ActivityOptionsCompat transitionActivityOptions =
-        //      ActivityOptionsCompat.makeSceneTransitionAnimation(
-        //            getActivity(), squareParticipant, toolbarParticipants, likeImageParticipant, likeTextParticipant, head);
-        //startActivity(intent, transitionActivityOptions.toBundle());
-        startActivity(intent);
-    }
 }

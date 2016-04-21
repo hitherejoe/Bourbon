@@ -36,7 +36,7 @@ public class BrowsePresenter extends BasePresenter<BrowseMvpView> {
 
     public void getShots(int perPage, int page) {
         checkViewAttached();
-        getMvpView().hideErrorView();
+        getMvpView().showMessageLayout(false);
         getMvpView().showProgress();
 
         mSubscription = mDataManager.getShots(perPage, page)

@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.common.util;
+package com.hitherejoe.bourbon.util;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;

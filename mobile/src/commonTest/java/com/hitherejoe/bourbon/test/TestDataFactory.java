@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.test.common;
+package com.hitherejoe.bourbon.test;
 
 import com.hitherejoe.bourbon.common.data.model.Comment;
 import com.hitherejoe.bourbon.common.data.model.Shot;

@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,34 +31,19 @@ import butterknife.ButterKnife;
 
 public class ShotFragment extends Fragment implements ShotMvpView {
 
-    public static final String ARGUMENT_SHOT = "ARGUMENT_SHOT";
+    private static final String ARGUMENT_SHOT = "ARGUMENT_SHOT";
 
     @Inject CommentAdapter mCommentsAdapter;
-    @Inject
-    ShotPresenter mShotPresenter;
+    @Inject ShotPresenter mShotPresenter;
 
-    @Bind(R.id.layout_shot)
-    View mRootView;
-    @Bind(R.id.recycler_comments)
-    RecyclerView mCommentsRecycler;
-    @Bind(R.id.toolbar_shot)
-    Toolbar mToolbar;
-    @Bind(R.id.text_error_message)
-    View mErrorText;
-    @Bind(R.id.progress)
-    View mProgress;
-    @Bind(R.id.image_shot)
-    ImageView mShotImage;
-    @Bind(R.id.text_title)
-    TextView mTitleText;
-
-    @Bind(R.id.text_comments_title)
-    TextView mCommentsTitleText;
-
-
-
-    @Bind(R.id.text_like_count)
-    TextView mLikeText;
+    @Bind(R.id.recycler_comments) RecyclerView mCommentsRecycler;
+    @Bind(R.id.toolbar_shot) Toolbar mToolbar;
+    @Bind(R.id.image_shot) ImageView mShotImage;
+    @Bind(R.id.text_title) TextView mTitleText;
+    @Bind(R.id.text_like_count) TextView mLikeText;
+    @Bind(R.id.text_comments_title) TextView mCommentsTitleText;
+    @Bind(R.id.progress) View mProgress;
+    @Bind(R.id.text_error_message) View mErrorText;
 
     public static ShotFragment newInstance(Shot shot) {
         ShotFragment shotFragment = new ShotFragment();
@@ -83,14 +67,6 @@ public class ShotFragment extends Fragment implements ShotMvpView {
         View fragmentView = inflater.inflate(R.layout.fragment_shot, container, false);
         ButterKnife.bind(this, fragmentView);
 
-       // Slide slide = new Slide(Gravity.BOTTOM);
-      //  slide.addTarget(R.id.layout_comments);
-      //  slide.addTarget(R.id.text_title);
-      //  slide.addTarget(R.id.layout_likes);
-       // getActivity().getWindow().setEnterTransition(slide);
-
-
-
         Shot shot = getArguments().getParcelable(ARGUMENT_SHOT);
 
         if (shot == null) {
@@ -109,29 +85,17 @@ public class ShotFragment extends Fragment implements ShotMvpView {
         mCommentsRecycler.setHasFixedSize(true);
         mCommentsRecycler.setAdapter(mCommentsAdapter);
 
-        mShotPresenter.getComments(shot.id, 0, 0);
-        Glide.with(this).load(shot.images.normal)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mShotImage);
-        mTitleText.setText(shot.title);
-        mLikeText.setText(shot.likes_count);
-
-        final ViewTreeObserver observer = mRootView.getViewTreeObserver();
-
-        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-            //    mRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-              //  getActivity().startPostponedEnterTransition();
-            }
-        });
+        setupLayout(shot);
+        mShotPresenter.getComments(shot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
 
         return fragmentView;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-       // getActivity().supportFinishAfterTransition();
+    private void setupLayout(Shot shot) {
+        Glide.with(this).load(shot.images.normal)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mShotImage);
+        mTitleText.setText(shot.title);
+        mLikeText.setText(shot.likes_count);
     }
 
     @Override

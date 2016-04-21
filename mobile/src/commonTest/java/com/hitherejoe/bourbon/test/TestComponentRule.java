@@ -1,8 +1,8 @@
-package com.hitherejoe.bourbon.test.common;
+package com.hitherejoe.bourbon.test;
 
 import android.content.Context;
 
-import com.hitherejoe.bourbon.BourbonApplication;
+import com.hitherejoe.bourbon.common.BourbonApplication;
 import com.hitherejoe.bourbon.common.data.DataManager;
 import com.hitherejoe.bourbon.test.injection.component.DaggerTestComponent;
 import com.hitherejoe.bourbon.test.injection.component.TestComponent;

@@ -13,12 +13,10 @@ public interface BrowseMvpView extends MvpView {
 
     void showShots(List<Shot> shots);
 
-    void setComplete();
-
     void showError();
 
     void showEmpty();
 
-    void hideErrorView();
+    void showMessageLayout(boolean show);
 
 }

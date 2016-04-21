@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.common.data.model.Comment;
-import com.hitherejoe.bourbon.common.util.CustomTabUtil;
-import com.hitherejoe.bourbon.common.util.TextViewLinkHandler;
+import com.hitherejoe.bourbon.util.CustomTabUtil;
+import com.hitherejoe.bourbon.util.TextViewLinkHandler;
 
 import java.util.Collections;
 import java.util.List;

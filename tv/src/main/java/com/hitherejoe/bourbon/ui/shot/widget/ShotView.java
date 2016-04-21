@@ -46,6 +46,11 @@ public class ShotView extends FrameLayout {
         init();
     }
 
+    private void init() {
+        LayoutInflater.from(getContext()).inflate(R.layout.view_shot, this);
+        ButterKnife.bind(this);
+    }
+
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (!mIsDetailViewAnimating) {
@@ -74,11 +79,6 @@ public class ShotView extends FrameLayout {
                 animateViewOut();
             }
         }, 2000);
-    }
-
-    private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.view_shot, this);
-        ButterKnife.bind(this);
     }
 
     private void animateViewOut() {

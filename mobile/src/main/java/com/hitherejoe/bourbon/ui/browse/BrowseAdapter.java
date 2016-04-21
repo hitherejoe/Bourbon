@@ -28,16 +28,10 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private List<Shot> mShots;
     private ClickListener mClickListener;
-    private int mCurrentPage;
-    private boolean mIsLastPage;
-    private int mPageCount;
 
     @Inject
     public BrowseAdapter() {
         mShots = Collections.emptyList();
-        mCurrentPage = 0;
-        mIsLastPage = false;
-        mPageCount = 20;
     }
 
     public void setShots(List<Shot> shots) {
@@ -46,26 +40,6 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public void setClickListener(ClickListener clickListener) {
         mClickListener = clickListener;
-    }
-
-    public int getCurrentPage() {
-        return mCurrentPage;
-    }
-
-    public int getNextCurrentPage() {
-        return mCurrentPage++;
-    }
-
-    public boolean getIsLastPage() {
-        return mIsLastPage;
-    }
-
-    public void setIsLastPage(boolean isLastPage) {
-        mIsLastPage = isLastPage;
-    }
-
-    public int getPageCount() {
-        return mPageCount;
     }
 
     @Override
@@ -89,7 +63,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ShotViewHolder) {
-            Shot shot = (Shot) mShots.get(position);
+            Shot shot = mShots.get(position);
             ShotViewHolder viewHolder = (ShotViewHolder) holder;
             viewHolder.mShot = shot;
             viewHolder.likeCountText.setText(shot.likes_count);
@@ -102,7 +76,6 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     public class ShotViewHolder extends RecyclerView.ViewHolder {
-
         @Bind(R.id.image_shot) ImageView shotImage;
         @Bind(R.id.image_like) ImageView likeCountImage;
         @Bind(R.id.text_like_count) TextView likeCountText;
@@ -118,7 +91,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 @Override
                 public void onClick(View v) {
                     if (mClickListener != null) {
-                        mClickListener.onShotClick(mShot, shotImage, viewCountText, likeCountImage, likeCountText, viewHeader);
+                        mClickListener.onShotClick(mShot);
                     }
                 }
             });
@@ -135,7 +108,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     public interface ClickListener {
-        void onShotClick(Shot shot, ImageView shotImage, TextView titleText, ImageView likeImage, View likeView, View header);
+        void onShotClick(Shot shot);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.hitherejoe.bourbon.ui.shot.widget;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.util.DisplayMetricsUtil;
 
 /**
  * Simple view pager indicator that uses circles to indicate the pages.
@@ -17,9 +17,14 @@ import com.hitherejoe.bourbon.common.util.DisplayMetricsUtil;
  */
 public class PagerIndicatorView extends LinearLayout {
 
-    private final int mIndicatorSize = DisplayMetricsUtil.dpToPx(12);
-    private final int mIndicatorMargin = DisplayMetricsUtil.dpToPx(6);
+    private final int mIndicatorSize = dpToPx(12);
+    private final int mIndicatorMargin = dpToPx(6);
     private ViewPager mViewPager;
+
+    public int dpToPx(int dp) {
+        float density = Resources.getSystem().getDisplayMetrics().density;
+        return Math.round(dp * density);
+    }
 
     public PagerIndicatorView(Context context) {
         super(context);

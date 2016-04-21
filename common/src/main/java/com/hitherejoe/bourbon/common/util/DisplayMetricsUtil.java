@@ -1,6 +1,5 @@
 package com.hitherejoe.bourbon.common.util;
 
-
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
