@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">Bourbon</string>
 
+    <string name="title_oops">Oops</string>
+    <string name="title_no_shots">No shots</string>
     <string name="text_reload">Reload</string>
     <string name="text_check_again">Check Again</string>
     <string name="text_recent_comments">Recent Comments</string>
     <string name="text_no_recent_comments">No recent Comments</string>
     <string name="text_error_loading_comments">There was an error loading the comments</string>
 
-    <string name="text_error_loading_shots">Oops, something went wrong whilst retrieving the shots&#8230;</string>
-    <string name="text_no_shots">Oops, looks like there\'s no shots to display here&#8230;</string>
+    <string name="text_error_loading_shots">Something went wrong whilst retrieving the shots. Please try again&#8230;</string>
+    <string name="text_no_shots">Looks like there\'s no shots to display here. Try checking again soon&#8230;</string>
+
+    <string name="dialog_loading_title">Loading&#8230;</string>
+    <string name="dialog_loading_shots">They\'ll be ready soon!</string>
 </resources>

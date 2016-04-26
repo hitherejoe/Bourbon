@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonStyle" parent="Base.Widget.AppCompat.Button">
+        <item name="android:colorControlHighlight">@color/colorAccent</item>
+        <item name="android:colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
 </resources>

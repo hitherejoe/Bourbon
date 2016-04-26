@@ -1,6 +1,7 @@
 package com.hitherejoe.bourbon.ui.shot.widget;
 
 import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
@@ -56,9 +57,7 @@ public class ShotView extends FrameLayout {
         if (!mIsDetailViewAnimating) {
             if (event.getAction() == KeyEvent.ACTION_UP) {
                 if (!mIsDetailViewShowing) {
-                    mShotDetail.animate().translationY(240 - mShotDetail.getHeight())
-                            .setInterpolator(new LinearOutSlowInInterpolator())
-                            .setListener(mAnimatorListener).start();
+                    animateViewIn();
                 }
             } else if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 if (mIsDetailViewShowing) {
@@ -81,8 +80,14 @@ public class ShotView extends FrameLayout {
         }, 2000);
     }
 
+    private void animateViewIn() {
+        mShotDetail.animate().translationY(mShotDetail.getTop() + mShotDetail.getHeight())
+                .setInterpolator(new LinearOutSlowInInterpolator())
+                .setListener(mAnimatorListener).start();
+    }
+
     private void animateViewOut() {
-        mShotDetail.animate().translationY(60 + mShotDetail.getHeight())
+       mShotDetail.animate().translationY(mShotDetail.getTop()-mShotDetail.getHeight())
                 .setInterpolator(new LinearOutSlowInInterpolator())
                 .setListener(mAnimatorListener).start();
     }

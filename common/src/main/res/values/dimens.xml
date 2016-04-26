@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="text_huge_headline">48sp</dimen>
     <dimen name="text_headline">24sp</dimen>
     <dimen name="text_large_title">22sp</dimen>
     <dimen name="text_title">20sp</dimen>

@@ -5,6 +5,7 @@ import android.widget.FrameLayout;
 
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
+import com.hitherejoe.bourbon.ui.message.MessageFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,14 +20,22 @@ public class BrowseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
         ButterKnife.bind(this);
-
-        getFragmentManager().beginTransaction()
-                .replace(mFragmentContainer.getId(), BrowseFragment.newInstance()).commit();
+        showBrowseFragment();
     }
 
     @Override
     public boolean onSearchRequested() {
         return true;
+    }
+
+    public void showBrowseFragment() {
+        getFragmentManager().beginTransaction()
+                .replace(mFragmentContainer.getId(), BrowseFragment.newInstance()).commit();
+    }
+
+    public void showMessageFragment(int type) {
+        getFragmentManager().beginTransaction()
+                .replace(mFragmentContainer.getId(), MessageFragment.newInstance(type)).commit();
     }
 
 }

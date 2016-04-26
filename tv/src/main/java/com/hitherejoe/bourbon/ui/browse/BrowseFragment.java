@@ -1,6 +1,8 @@
 package com.hitherejoe.bourbon.ui.browse;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,9 +14,16 @@ import android.support.v17.leanback.widget.OnItemViewSelectedListener;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
+import android.support.v17.leanback.widget.TitleView;
 import android.support.v17.leanback.widget.VerticalGridPresenter;
 import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -25,12 +34,15 @@ import com.hitherejoe.bourbon.common.data.model.Shot;
 import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
 import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
+import com.hitherejoe.bourbon.ui.message.MessageFragment;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 
 import java.net.URI;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import butterknife.Bind;
 
 public class BrowseFragment extends VerticalGridFragment implements BrowseMvpView {
 
@@ -47,6 +59,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
     private Handler mHandler;
     private Runnable mBackgroundRunnable;
     private BrowseAdapter mBrowseAdapter;
+    private ProgressDialog mProgressDialog;
 
     public static BrowseFragment newInstance() {
         return new BrowseFragment();
@@ -90,7 +103,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
         mBackgroundManager.attach(getActivity().getWindow());
         mDefaultBackground =
                 new ColorDrawable(ContextCompat.getColor(getActivity(),
-                        com.hitherejoe.bourbon.common.R.color.gray));
+                        R.color.mid_gray));
         mMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(mMetrics);
     }
@@ -159,12 +172,16 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
 
     @Override
     public void showProgress() {
-
+        if (mProgressDialog == null) {
+            mProgressDialog = ProgressDialog.show(getActivity(), getString(R.string.dialog_loading_title),
+                    getString(R.string.dialog_loading_shots), true);
+        }
+        mProgressDialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        mProgressDialog.hide();
     }
 
     @Override
@@ -173,22 +190,18 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
     }
 
     @Override
-    public void setComplete() {
-
-    }
-
-    @Override
     public void showError() {
-
+        ((BrowseActivity) getActivity()).showMessageFragment(MessageFragment.TYPE_ERROR);
     }
 
     @Override
     public void showEmpty() {
-
+        ((BrowseActivity) getActivity()).showMessageFragment(MessageFragment.TYPE_EMPTY);
     }
 
     @Override
-    public void hideErrorView() {
+    public void showMessageLayout(boolean show) {
 
     }
+
 }

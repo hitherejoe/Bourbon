@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/error_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:descendantFocusability="afterDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:nextFocusDown="@id/error_frame"
+    android:nextFocusLeft="@id/error_frame"
+    android:nextFocusRight="@id/error_frame"
+    android:nextFocusUp="@id/error_frame">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="28dp"
+        android:maxWidth="@dimen/lb_error_message_max_width"
+        android:textColor="@color/mid_gray"
+        android:textSize="@dimen/text_huge_headline" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image_message"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/lb_error_image_max_height"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp" />
+
+        <TextView
+            android:id="@+id/text_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_horizontal"
+            android:maxWidth="@dimen/lb_error_message_max_width"
+            android:textColor="@color/mid_gray"
+            android:textSize="@dimen/text_headline" />
+
+        <Button
+            android:id="@+id/button_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:nextFocusDown="@id/button_message"
+            android:nextFocusLeft="@id/button_message"
+            android:nextFocusRight="@id/button_message"
+            android:nextFocusUp="@id/button_message"
+            android:theme="@style/ButtonStyle" />
+
+    </LinearLayout>
+
+</RelativeLayout>
