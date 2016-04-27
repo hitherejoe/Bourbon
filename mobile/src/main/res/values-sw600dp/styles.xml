@@ -1,11 +1,15 @@
 <resources>
 
     <style name="ShotContainerStyle">
-        <item name="behavior_overlapTop">100dp</item>
+        <item name="behavior_overlapTop">60dp</item>
     </style>
 
     <style name="ShotHeaderStyle">
 
+    </style>
+
+    <style name="RecentCommentsStyle">
+        <item name="android:background">@color/white</item>
     </style>
 
 </resources>

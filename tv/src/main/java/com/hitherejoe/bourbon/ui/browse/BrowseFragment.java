@@ -2,7 +2,6 @@ package com.hitherejoe.bourbon.ui.browse;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,25 +13,18 @@ import android.support.v17.leanback.widget.OnItemViewSelectedListener;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
-import android.support.v17.leanback.widget.TitleView;
 import android.support.v17.leanback.widget.VerticalGridPresenter;
 import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.DataManager;
-import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
+import com.hitherejoe.bourboncommon.data.DataManager;
+import com.hitherejoe.bourboncommon.data.model.Shot;
+import com.hitherejoe.bourboncommon.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourboncommon.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.message.MessageFragment;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
@@ -41,8 +33,6 @@ import java.net.URI;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import butterknife.Bind;
 
 public class BrowseFragment extends VerticalGridFragment implements BrowseMvpView {
 

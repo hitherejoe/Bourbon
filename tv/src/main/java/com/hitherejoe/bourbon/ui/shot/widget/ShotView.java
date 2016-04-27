@@ -1,7 +1,6 @@
 package com.hitherejoe.bourbon.ui.shot.widget;
 
 import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
@@ -14,7 +13,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourboncommon.data.model.Shot;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

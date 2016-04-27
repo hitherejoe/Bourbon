@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="article_content_horizontal_margin">0dp</dimen>
+    <dimen name="article_content_padding">16dp</dimen>
+
+    <dimen name="shot_item_container_padding">0dp</dimen>
+    <dimen name="shot_item_margin">0dp</dimen>
+    <dimen name="shot_item_margin_bottom">8dp</dimen>
+    <dimen name="shot_image_height">300dp</dimen>
+</resources>

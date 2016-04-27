@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourboncommon.data.model.Shot;
 
 import java.util.Collections;
 import java.util.List;

@@ -18,9 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
+import com.hitherejoe.bourboncommon.data.model.Shot;
+import com.hitherejoe.bourboncommon.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourboncommon.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourbon.util.DisplayMetricsUtil;
@@ -44,7 +44,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     @Bind(R.id.progress) ProgressBar mRecyclerProgress;
     @Bind(R.id.recycler_view) RecyclerView mShotRecycler;
     @Bind(R.id.swipe_to_refresh) SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.text_error_message) TextView mMessageText;
+    @Bind(R.id.text_message) TextView mMessageText;
     @Bind(R.id.toolbar_browse) Toolbar mToolbar;
     @Bind(R.id.layout_message) View mMessageLayout;
 
@@ -123,7 +123,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         return layoutManager;
     }
 
-    @OnClick(R.id.button_reload)
+    @OnClick(R.id.button_message)
     public void onReloadButtonClick() {
         mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, mBrowsePresenter.SHOT_PAGE);
     }

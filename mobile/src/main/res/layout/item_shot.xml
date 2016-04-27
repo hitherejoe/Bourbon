@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_margin="@dimen/shot_item_margin"
+    android:layout_marginBottom="@dimen/shot_item_margin_bottom"
     android:background="@drawable/bg_card"
     android:elevation="2dp"
     android:foreground="?android:attr/selectableItemBackground">
@@ -39,38 +40,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:padding="16dp"
             android:transitionName="@string/transition_shot_header">
 
-            <RelativeLayout
-                android:id="@+id/layout_likes"
+            <ImageView
+                android:id="@+id/image_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true">
+                android:src="@drawable/ic_heart_accent_24dp"
+                android:transitionName="@string/transition_shot_like_image" />
 
-                <ImageView
-                    android:id="@+id/image_like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_heart_accent_24dp"
-                    android:transitionName="@string/transition_shot_like_image" />
-
-                <TextView
-                    android:id="@+id/text_like_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="8dp"
-                    android:layout_toEndOf="@id/image_like"
-                    android:ellipsize="end"
-                    android:gravity="start"
-                    android:maxLines="1"
-                    android:textSize="@dimen/text_body"
-                    android:transitionName="@string/transition_shot_like_text" />
-
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/text_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/image_like"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:textSize="@dimen/text_body"
+                android:transitionName="@string/transition_shot_like_text" />
 
         </RelativeLayout>
 

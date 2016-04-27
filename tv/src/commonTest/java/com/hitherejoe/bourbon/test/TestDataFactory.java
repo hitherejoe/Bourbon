@@ -1,8 +1,8 @@
 package com.hitherejoe.bourbon.test;
 
-import com.hitherejoe.bourbon.common.data.model.Comment;
-import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.data.model.User;
+import com.hitherejoe.bourboncommon.data.model.Comment;
+import com.hitherejoe.bourboncommon.data.model.Shot;
+import com.hitherejoe.bourboncommon.data.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

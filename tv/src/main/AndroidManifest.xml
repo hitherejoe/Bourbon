@@ -19,7 +19,7 @@
         android:required="true" />
 
     <application
-        android:name=".common.BourbonApplication"
+        android:name="com.hitherejoe.bourboncommon.BourbonApplication"
         android:allowBackup="true"
         android:banner="@drawable/banner"
         android:icon="@mipmap/ic_launcher"

@@ -3,9 +3,9 @@ package com.hitherejoe.bourbon.test.injection.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.hitherejoe.bourbon.common.data.DataManager;
-import com.hitherejoe.bourbon.common.data.remote.BourbonService;
-import com.hitherejoe.bourbon.common.injection.ApplicationContext;
+import com.hitherejoe.bourboncommon.data.DataManager;
+import com.hitherejoe.bourboncommon.data.remote.BourbonService;
+import com.hitherejoe.bourboncommon.injection.ApplicationContext;
 
 import javax.inject.Singleton;
 

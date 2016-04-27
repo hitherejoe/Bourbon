@@ -24,8 +24,8 @@
             <ImageView
                 android:id="@+id/image_shot"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@android:color/darker_gray"
+                android:layout_height="@dimen/shot_image_height"
+                android:background="@color/colorPrimary"
                 android:scaleType="centerCrop"
                 android:transitionName="@string/transition_shot_image"
                 app:layout_collapseMode="parallax" />
@@ -48,123 +48,118 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
-            android:id="@+id/layout_header"
-            style="@style/ShotHeaderStyle"
+            android:id="@+id/layout_content"
+            style="@style/ArticleContentViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:transitionName="@string/transition_shot_header">
+            android:background="@color/white">
 
-            <TextView
-                android:id="@+id/text_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/layout_stats"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:padding="16dp"
-                android:textSize="@dimen/text_body"
-                android:transitionName="@string/transition_shot_title" />
-
-            <LinearLayout
-                android:id="@+id/layout_stats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <RelativeLayout
-                    android:id="@+id/layout_likes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/image_like"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_heart_accent_24dp"
-                        android:transitionName="@string/transition_shot_like_image" />
-
-                    <TextView
-                        android:id="@+id/text_like_count"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="8dp"
-                        android:layout_toEndOf="@id/image_like"
-                        android:ellipsize="end"
-                        android:gravity="start"
-                        android:maxLines="1"
-                        android:textSize="@dimen/text_body"
-                        android:transitionName="@string/transition_shot_like_text" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <View
-            android:id="@+id/view_separator"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@id/layout_header"
-            android:background="#dedede"
-            android:padding="16dp" />
-
-        <RelativeLayout
-            android:id="@+id/layout_comments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout_header">
-
-            <TextView
-                android:id="@+id/text_comments_title"
+            <RelativeLayout
+                android:id="@+id/layout_header"
+                style="@style/ShotHeaderStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/gray"
-                android:padding="16dp"
-                android:text="@string/text_recent_comments"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:visibility="invisible" />
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:transitionName="@string/transition_shot_header">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_comments"
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/image_like"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:padding="16dp"
+                    android:textSize="@dimen/text_body"
+                    android:transitionName="@string/transition_shot_title" />
+
+                <ImageView
+                    android:id="@+id/image_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/text_like_count"
+                    android:src="@drawable/ic_heart_accent_24dp"
+                    android:transitionName="@string/transition_shot_like_image" />
+
+                <TextView
+                    android:id="@+id/text_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_body"
+                    android:transitionName="@string/transition_shot_like_text" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@id/layout_header"
+                android:background="@color/line_gray"
+                android:padding="16dp" />
+
+            <RelativeLayout
+                android:id="@+id/layout_comments"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/text_comments_title"
-                android:layout_marginBottom="8dp"
-                android:background="@color/white"
-                android:clipToPadding="false"
-                android:elevation="2dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:visibility="gone"
-                tools:listitem="@layout/item_comment" />
+                android:layout_below="@id/layout_header"
+                android:layout_marginBottom="@dimen/shot_comments_margin_bottom">
 
-            <ProgressBar
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:paddingBottom="?attr/actionBarSize"
-                android:visibility="gone" />
+                <TextView
+                    android:id="@+id/text_comments_title"
+                    style="@style/RecentCommentsStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/text_recent_comments"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/text_error_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:padding="16dp"
-                android:text="@string/text_error_loading_comments"
-                android:visibility="gone" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/text_comments_title"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:clipToPadding="false"
+                    android:elevation="2dp"
+                    android:paddingBottom="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingTop="16dp"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_comment" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="40dp"
+                    android:paddingBottom="?attr/actionBarSize"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text_error_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:padding="16dp"
+                    android:text="@string/text_error_loading_comments"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

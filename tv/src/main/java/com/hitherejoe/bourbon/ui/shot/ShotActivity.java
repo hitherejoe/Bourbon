@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Comment;
-import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
-import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
+import com.hitherejoe.bourboncommon.data.model.Comment;
+import com.hitherejoe.bourboncommon.data.model.Shot;
+import com.hitherejoe.bourboncommon.ui.shot.ShotMvpView;
+import com.hitherejoe.bourboncommon.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.widget.PagerIndicatorView;
 

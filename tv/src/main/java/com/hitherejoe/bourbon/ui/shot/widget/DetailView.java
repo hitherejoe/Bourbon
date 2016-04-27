@@ -3,20 +3,17 @@ package com.hitherejoe.bourbon.ui.shot.widget;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourboncommon.data.model.Shot;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 public class DetailView extends RelativeLayout {
 

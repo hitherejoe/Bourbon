@@ -3,7 +3,7 @@ package com.hitherejoe.bourbon.test.common;
 import android.content.Context;
 
 import com.hitherejoe.bourbon.BourbonApplication;
-import com.hitherejoe.bourbon.common.data.DataManager;
+import com.hitherejoe.bourboncommon.data.DataManager;
 import com.hitherejoe.bourbon.test.injection.component.DaggerTestComponent;
 import com.hitherejoe.bourbon.test.injection.component.TestComponent;
 import com.hitherejoe.bourbon.test.injection.module.ApplicationTestModule;
