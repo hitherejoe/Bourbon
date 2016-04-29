@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.hitherejoe.bourbon.BourbonApplication;
+import com.hitherejoe.bourboncommon.BourbonApplication;
 import com.hitherejoe.bourboncommon.injection.module.ActivityModule;
 import com.hitherejoe.bourbon.component.ActivityComponent;
 import com.hitherejoe.bourbon.component.DaggerActivityComponent;

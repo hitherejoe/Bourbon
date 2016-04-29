@@ -66,13 +66,13 @@
 
             <TextView
                 android:id="@+id/text_message"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/image_message"
                 android:layout_centerHorizontal="true"
+                android:layout_margin="24dp"
                 android:layout_marginTop="18dp"
                 android:gravity="center_horizontal"
-                android:maxWidth="240dp"
                 android:textSize="@dimen/text_body"
                 tools:text="@string/text_error_loading_shots" />
 

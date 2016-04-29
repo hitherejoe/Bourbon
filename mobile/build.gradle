@@ -5,6 +5,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+    publishNonDefault true
 
     defaultConfig {
         applicationId "com.hitherejoe.bourbon"
@@ -39,10 +40,15 @@ android {
     lintOptions {
         warning 'InvalidPackage'
     }
+
+    packagingOptions {
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
+    }
 }
 
 dependencies {
-    final SUPPORT_LIBRARY_VERSION = '23.2.1'
+    final SUPPORT_LIBRARY_VERSION = '23.3.0'
     final DAGGER_VERSION = '2.2'
     final DEXMAKER_VERSION = '1.4'
     final ESPRESSO_VERSION = '2.2.1'
@@ -57,15 +63,18 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
 
     // Instrumentation test dependencies
+    androidTestCompile project(':common')
     androidTestCompile jUnit
     androidTestCompile mockito
     androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
     androidTestCompile("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
-        exclude group: 'com.android.support', module: 'appcompat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'javax.inject'
+        exclude group: 'com.android.support'
     }
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.0') {
+        exclude group: 'javax.inject'
+        exclude group: 'com.android.support'
+    }
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$ESPRESSO_VERSION"
     androidTestCompile "com.android.support.test:runner:$RUNNER_VERSION"
     androidTestCompile "com.android.support.test:rules:$RUNNER_VERSION"

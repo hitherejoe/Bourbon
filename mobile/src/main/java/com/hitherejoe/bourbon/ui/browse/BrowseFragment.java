@@ -83,9 +83,9 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mShotRecycler.setAdapter(mBrowseAdapter);
 
         mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(
-                com.hitherejoe.bourbon.common.R.color.colorAccent);
+                com.hitherejoe.bourboncommon.R.color.colorAccent);
         mSwipeRefreshLayout.setColorSchemeResources(
-                com.hitherejoe.bourbon.common.R.color.colorPrimaryDark);
+                com.hitherejoe.bourboncommon.R.color.colorPrimaryDark);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -164,7 +164,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mMessageImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
         mMessageText.setText(getString(R.string.text_error_loading_shots));
         mMessageButton.setText(getString(R.string.text_reload));
-        showMessageLayout(false);
+        showMessageLayout(true);
     }
 
     @Override
@@ -173,7 +173,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mMessageImage.setImageResource(R.drawable.ic_empty_glass_120dp);
         mMessageText.setText(getString(R.string.text_no_shots));
         mMessageButton.setText(getString(R.string.text_check_again));
-        showMessageLayout(false);
+        showMessageLayout(true);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.hitherejoe.bourboncommon.data;
 
-import com.hitherejoe.bourbon.common.BuildConfig;
+import com.hitherejoe.bourboncommon.BuildConfig;
 import com.hitherejoe.bourboncommon.data.model.Comment;
 import com.hitherejoe.bourboncommon.data.model.Shot;
 import com.hitherejoe.bourboncommon.data.remote.BourbonService;

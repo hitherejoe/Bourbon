@@ -1,1 +1,1 @@
-include ':mobile', ':wear', ':tv', ':common'
+include ':mobile', ':wear', ':tv', ':common', ':mobile-androidTest', ':wear-androidTest'

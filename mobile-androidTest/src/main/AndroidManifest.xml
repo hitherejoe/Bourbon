@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hitherejoe.bourbon.test">
+
+    <!-- Specify runner and target application package -->
+    <instrumentation android:name=".runner.RxAndroidJUnitRunner"
+        android:targetPackage="com.hitherejoe.bourbon"/>
+</manifest>

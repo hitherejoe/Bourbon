@@ -4,9 +4,9 @@ import android.content.Context;
 
 import com.hitherejoe.bourboncommon.BourbonApplication;
 import com.hitherejoe.bourboncommon.data.DataManager;
-import com.hitherejoe.bourbon.test.injection.component.DaggerTestComponent;
-import com.hitherejoe.bourbon.test.injection.component.TestComponent;
-import com.hitherejoe.bourbon.test.injection.module.ApplicationTestModule;
+import com.hitherejoe.bourboncommon.injection.component.DaggerTestComponent;
+import com.hitherejoe.bourboncommon.injection.component.TestComponent;
+import com.hitherejoe.bourboncommon.injection.module.ApplicationTestModule;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;

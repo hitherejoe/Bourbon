@@ -3,7 +3,7 @@ package com.hitherejoe.bourboncommon.data.remote;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hitherejoe.bourbon.common.BuildConfig;
+import com.hitherejoe.bourboncommon.BuildConfig;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,10 +19,10 @@ public class BourbonServiceFactory {
 
     public static BourbonService makeBourbonService() {
         OkHttpClient okHttpClient = makeOkHttpClient(makeLoggingInterceptor());
-        return makeSecretsService(okHttpClient, makeGson());
+        return makeBourbonService(okHttpClient, makeGson());
     }
 
-    public static BourbonService makeSecretsService(OkHttpClient okHttpClient, Gson gson) {
+    public static BourbonService makeBourbonService(OkHttpClient okHttpClient, Gson gson) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.DRIBBBLE_API_URL)
                 .client(okHttpClient)

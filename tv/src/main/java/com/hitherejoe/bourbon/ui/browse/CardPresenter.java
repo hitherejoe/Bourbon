@@ -29,9 +29,9 @@ public class CardPresenter extends Presenter {
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         final Context context = parent.getContext();
         sDefaultBackgroundColor = ContextCompat.getColor(context,
-                com.hitherejoe.bourbon.common.R.color.colorPrimary);
+                com.hitherejoe.bourboncommon.R.color.colorPrimary);
         sSelectedBackgroundColor = ContextCompat.getColor(context,
-                com.hitherejoe.bourbon.common.R.color.colorPrimaryDark);
+                com.hitherejoe.bourboncommon.R.color.colorPrimaryDark);
         mDefaultCardImage = ContextCompat.getDrawable(context, android.R.drawable.alert_dark_frame);
 
         final ImageCardView cardView = new ImageCardView(parent.getContext()) {

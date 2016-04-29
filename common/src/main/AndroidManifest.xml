@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.hitherejoe.bourbon.common">
+<manifest package="com.hitherejoe.bourboncommon"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+    </application>
+
 </manifest>

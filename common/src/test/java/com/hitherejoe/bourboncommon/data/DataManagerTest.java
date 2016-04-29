@@ -3,7 +3,7 @@ package com.hitherejoe.bourboncommon.data;
 import com.hitherejoe.bourboncommon.data.model.Comment;
 import com.hitherejoe.bourboncommon.data.model.Shot;
 import com.hitherejoe.bourboncommon.data.remote.BourbonService;
-import com.hitherejoe.bourbon.test.common.TestDataFactory;
+import com.hitherejoe.bourboncommon.common.TestDataFactory;
 import com.hitherejoe.bourboncommon.util.RxSchedulersOverrideRule;
 
 import org.junit.Before;

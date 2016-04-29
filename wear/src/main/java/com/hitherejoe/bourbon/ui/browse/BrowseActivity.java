@@ -76,11 +76,6 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
     }
 
     @Override
-    public void setComplete() {
-
-    }
-
-    @Override
     public void showError() {
         mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_48dp);
         mErrorText.setText(getString(R.string.text_error_loading_shots));
@@ -95,8 +90,8 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
     }
 
     @Override
-    public void hideErrorView() {
-        mErrorView.setVisibility(View.GONE);
+    public void showMessageLayout(boolean show) {
+        mErrorView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     @OnClick(R.id.layout_error)

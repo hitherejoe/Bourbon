@@ -3,6 +3,9 @@ apply from: '../config/quality/quality.gradle'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
+    publishNonDefault true
+    defaultPublishConfig "debug"
+
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
@@ -11,6 +14,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "com.hitherejoe.bourboncommon.test.runner.RxAndroidJUnitRunner"
 
         buildConfigField("String", "DRIBBBLE_API_URL",
                 "\"${dribbbleApiUrl}\"")
@@ -37,10 +41,11 @@ android {
         exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
         exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
     }
+
 }
 
 dependencies {
-    final SUPPORT_LIBRARY_VERSION = '23.2.1'
+    final SUPPORT_LIBRARY_VERSION = '23.3.0'
     final RETROFIT_VERSION = '2.0.0'
     final OKHTTP_VERSION = '3.2.0'
     final DAGGER_VERSION = '2.2'
@@ -71,6 +76,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton.timber:timber:4.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile jUnit
+    compile mockito
 
     compile  "com.google.dagger:dagger:$DAGGER_VERSION"
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
@@ -83,25 +90,7 @@ dependencies {
     testCompile "org.hamcrest:hamcrest-integration:$HAMCREST_VERSION"
     testCompile 'org.robolectric:robolectric:3.0'
 
-    // Instrumentation test dependencies
-    androidTestCompile jUnit
-    androidTestCompile mockito
-    androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
-        exclude group: 'com.android.support', module: 'appcompat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-    }
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:$ESPRESSO_VERSION"
-    androidTestCompile "com.android.support.test:runner:$RUNNER_VERSION"
-    androidTestCompile "com.android.support.test:rules:$RUNNER_VERSION"
-    androidTestCompile "com.crittercism.dexmaker:dexmaker:$DEXMAKER_VERSION"
-    androidTestCompile "com.crittercism.dexmaker:dexmaker-dx:$DEXMAKER_VERSION"
-    androidTestCompile "com.crittercism.dexmaker:dexmaker-mockito:$DEXMAKER_VERSION"
-
     // APT dependencies
     apt daggerCompiler
     testApt daggerCompiler
-    androidTestApt daggerCompiler
 }

@@ -64,7 +64,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
         setupFragment();
         prepareBackgroundManager();
         setSearchAffordanceColor(ContextCompat.getColor(getActivity(),
-                com.hitherejoe.bourbon.common.R.color.colorAccent));
+                com.hitherejoe.bourboncommon.R.color.colorAccent));
         mBrowseAdapter = new BrowseAdapter();
         setAdapter(mBrowseAdapter);
         setOnItemViewSelectedListener(mOnItemViewSelectedListener);
@@ -176,7 +176,8 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
 
     @Override
     public void showShots(List<Shot> shots) {
-        mBrowseAdapter.addAll(0, shots);
+        //mBrowseAdapter.addAll(0, shots);
+        showEmpty();
     }
 
     @Override

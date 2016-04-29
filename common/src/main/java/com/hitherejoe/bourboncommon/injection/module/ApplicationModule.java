@@ -45,7 +45,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    BourbonService provideSecretsService() {
+    BourbonService provideBourbonService() {
         return BourbonServiceFactory.makeBourbonService();
     }
 
