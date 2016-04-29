@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hitherejoe.bourbon.test">
 
-    <uses-feature android:name="android.hardware.type.watch" />
-
     <!-- Specify runner and target application package -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
     <instrumentation android:name=".runner.RxAndroidJUnitRunner"
         android:targetPackage="com.hitherejoe.bourbon"/>
 </manifest>

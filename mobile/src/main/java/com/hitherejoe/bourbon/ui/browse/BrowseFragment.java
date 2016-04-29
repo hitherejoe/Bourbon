@@ -156,6 +156,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mBrowseAdapter.setShots(shots);
         mBrowseAdapter.notifyDataSetChanged();
         mShotRecycler.setVisibility(View.VISIBLE);
+        showEmpty();
     }
 
     @Override

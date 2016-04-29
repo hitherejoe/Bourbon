@@ -54,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/separator_line"
             android:layout_centerHorizontal="true"
-            android:padding="8dp" />
+            android:paddingTop="10dp"
+            android:paddingBottom="16dp" />
 
     </RelativeLayout>
 

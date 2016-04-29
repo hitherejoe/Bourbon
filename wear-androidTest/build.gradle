@@ -18,7 +18,6 @@ android {
 }
 
 dependencies {
-
     final SUPPORT_LIBRARY_VERSION = '23.3.0'
     final DAGGER_VERSION = '2.2'
     final DEXMAKER_VERSION = '1.4'
@@ -56,4 +55,3 @@ dependencies {
     // APT dependencies
     apt daggerCompiler
 }
-
