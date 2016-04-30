@@ -30,6 +30,7 @@ public class TestDataFactory {
         Shot shot = new Shot();
         shot.id = id;
         shot.title = randomUuid();
+        shot.description = randomUuid();
         shot.image = randomUuid();
         shot.likes_count = String.valueOf(sRandom.nextInt(999));
         shot.views_count = String.valueOf(sRandom.nextInt(999));

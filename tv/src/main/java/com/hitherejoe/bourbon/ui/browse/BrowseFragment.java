@@ -176,8 +176,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
 
     @Override
     public void showShots(List<Shot> shots) {
-        //mBrowseAdapter.addAll(0, shots);
-        showEmpty();
+        mBrowseAdapter.addAll(0, shots);
     }
 
     @Override
