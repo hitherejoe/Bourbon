@@ -29,7 +29,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     public static final String EXTRA_SHOT =
             "com.hitherejoe.bourbon.ui.comment.CommentActivity.EXTRA_SHOT";
 
-    @Bind(R.id.pager_shots)
+    @Bind(R.id.pager_comments)
     ViewPager mShotsPager;
     @Bind(R.id.progress)
     ProgressBar mProgress;

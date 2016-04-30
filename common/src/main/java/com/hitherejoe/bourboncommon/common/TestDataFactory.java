@@ -31,12 +31,13 @@ public class TestDataFactory {
         shot.id = id;
         shot.title = randomUuid();
         shot.image = randomUuid();
-        shot.likes_count = String.valueOf(sRandom.nextInt());
-        shot.views_count = String.valueOf(randomUuid());
+        shot.likes_count = String.valueOf(sRandom.nextInt(999));
+        shot.views_count = String.valueOf(sRandom.nextInt(999));
         shot.images = new Image();
         shot.images.hidpi = randomUuid();
         shot.images.normal = randomUuid();
         shot.images.teaser = randomUuid();
+        shot.user = makeUser(0);
         return shot;
     }
 

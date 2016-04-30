@@ -5,7 +5,7 @@
     android:background="@color/white">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/pager_shots"
+        android:id="@+id/pager_comments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/layout_footer" />

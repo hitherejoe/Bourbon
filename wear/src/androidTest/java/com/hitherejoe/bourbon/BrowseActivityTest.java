@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.test;
+package com.hitherejoe.bourbon;
 
 import android.os.SystemClock;
 import android.support.test.InstrumentationRegistry;
@@ -7,6 +7,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
 import com.hitherejoe.bourboncommon.common.TestDataFactory;
+import com.hitherejoe.bourboncommon.data.model.Comment;
 import com.hitherejoe.bourboncommon.data.model.Shot;
 import com.hitherejoe.bourboncommon.injection.component.TestComponentRule;
 
@@ -52,9 +53,9 @@ public class BrowseActivityTest {
         main.launchActivity(null);
 
 
-        onView(withText(com.hitherejoe.bourbon.R.string.text_error_loading_shots))
+        onView(withText(R.string.text_error_loading_shots))
                 .check(matches(isDisplayed()));
-        onView(withText(com.hitherejoe.bourbon.R.string.text_reload))
+        onView(withText(R.string.text_reload))
                 .check(matches(isDisplayed()));
     }
 
@@ -65,42 +66,9 @@ public class BrowseActivityTest {
         main.launchActivity(null);
 
 
-        onView(withText(com.hitherejoe.bourbon.R.string.text_no_shots))
+        onView(withText(R.string.text_no_shots))
                 .check(matches(isDisplayed()));
-        onView(withText(com.hitherejoe.bourbon.R.string.text_reload))
-                .check(matches(isDisplayed()));
-    }
-
-    @Test
-    public void shotDisplaysAndInformationIsBrowsable() throws InterruptedException {
-        Shot shot = TestDataFactory.makeShot(0);
-        when(component.getMockDataManager().getShots(anyInt(), anyInt()))
-                .thenReturn(Single.just(Collections.singletonList(shot)));
-        main.launchActivity(null);
-
-        onView(withId(com.hitherejoe.bourbon.R.id.image_shot))
-                .check(matches(isDisplayed()));
-        onView(withId(com.hitherejoe.bourbon.R.id.pager_shots))
-                .check(matches(isDisplayed()));
-
-        swipeLeft();
-        SystemClock.sleep(500);
-
-        onView(withText(shot.title))
-                .check(matches(isDisplayed()));
-        onView(withText(shot.user.username))
-                .check(matches(isDisplayed()));
-
-        swipeLeft();
-        SystemClock.sleep(500);
-
-        onView(withText(shot.likes_count))
-                .check(matches(isDisplayed()));
-
-        swipeLeft();
-        SystemClock.sleep(500);
-
-        onView(withText(shot.views_count))
+        onView(withText(R.string.text_reload))
                 .check(matches(isDisplayed()));
     }
 
@@ -111,33 +79,29 @@ public class BrowseActivityTest {
                 .thenReturn(Single.just(shots));
         main.launchActivity(null);
 
-        onView(withId(com.hitherejoe.bourbon.R.id.image_shot))
-                .check(matches(isDisplayed()));
-        onView(withId(com.hitherejoe.bourbon.R.id.pager_shots))
-                .check(matches(isDisplayed()));
-
         for (Shot shot : shots) {
-            swipeLeft();
-            SystemClock.sleep(500);
+            onView(withId(R.id.pager_shots))
+                    .perform(swipeLeft());
 
             onView(withText(shot.title))
                     .check(matches(isDisplayed()));
             onView(withText(shot.user.username))
                     .check(matches(isDisplayed()));
 
-            swipeLeft();
-            SystemClock.sleep(500);
+            onView(withId(R.id.pager_shots))
+                    .perform(swipeLeft());
 
             onView(withText(shot.likes_count))
                     .check(matches(isDisplayed()));
 
-            swipeLeft();
-            SystemClock.sleep(500);
+            onView(withId(R.id.pager_shots))
+                    .perform(swipeLeft());
 
             onView(withText(shot.views_count))
                     .check(matches(isDisplayed()));
 
-            swipeUp();
+            onView(withId(R.id.pager_shots))
+                    .perform(swipeUp());
         }
     }
 
@@ -146,12 +110,14 @@ public class BrowseActivityTest {
         Shot shot = TestDataFactory.makeShot(0);
         when(component.getMockDataManager().getShots(anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(shot)));
+        when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
+                .thenReturn(Single.just(Collections.<Comment>emptyList()));
         main.launchActivity(null);
 
-        onView(withId(com.hitherejoe.bourbon.R.id.image_shot))
+        onView(withId(R.id.image_shot))
                 .perform(click());
 
-        onView(withId(com.hitherejoe.bourbon.R.id.pager_shots))
+        onView(withId(R.id.pager_comments))
                 .check(matches(isDisplayed()));
     }
 
