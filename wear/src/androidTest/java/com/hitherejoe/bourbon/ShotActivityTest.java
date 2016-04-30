@@ -5,12 +5,11 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
 import com.hitherejoe.bourbon.ui.comment.CommentActivity;
-import com.hitherejoe.bourboncommon.common.TestDataFactory;
-import com.hitherejoe.bourboncommon.data.model.Comment;
-import com.hitherejoe.bourboncommon.data.model.Shot;
-import com.hitherejoe.bourboncommon.injection.component.TestComponentRule;
+import com.hitherejoe.bourbon.common.test.TestDataFactory;
+import com.hitherejoe.bourbon.common.data.model.Comment;
+import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.injection.component.TestComponentRule;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,7 +17,6 @@ import org.junit.rules.RuleChain;
 import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
-import java.util.Collections;
 import java.util.List;
 
 import rx.Single;

@@ -6,12 +6,11 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
-import com.hitherejoe.bourboncommon.common.TestDataFactory;
-import com.hitherejoe.bourboncommon.data.model.Comment;
-import com.hitherejoe.bourboncommon.data.model.Shot;
-import com.hitherejoe.bourboncommon.injection.component.TestComponentRule;
+import com.hitherejoe.bourbon.common.test.TestDataFactory;
+import com.hitherejoe.bourbon.common.data.model.Comment;
+import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.injection.component.TestComponentRule;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,7 +30,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static com.hitherejoe.bourbon.util.CustomMatchers.withItemText;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.when;
 

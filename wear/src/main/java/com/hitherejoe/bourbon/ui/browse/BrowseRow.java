@@ -1,7 +1,7 @@
 package com.hitherejoe.bourbon.ui.browse;
 
 
-import com.hitherejoe.bourboncommon.data.model.Shot;
+import com.hitherejoe.bourbon.common.data.model.Shot;
 
 import java.util.ArrayList;
 

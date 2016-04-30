@@ -10,9 +10,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.data.model.Shot;
-import com.hitherejoe.bourboncommon.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourboncommon.ui.browse.BrowsePresenter;
+import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourbon.common.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourbon.common.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 
 import java.util.List;

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.data.model.Comment;
+import com.hitherejoe.bourbon.common.data.model.Comment;
 
 import java.util.Collections;
 import java.util.List;
