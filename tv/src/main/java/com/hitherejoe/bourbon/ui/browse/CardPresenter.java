@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
 
 import javax.inject.Inject;
 
@@ -28,10 +28,8 @@ public class CardPresenter extends Presenter {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         final Context context = parent.getContext();
-        sDefaultBackgroundColor = ContextCompat.getColor(context,
-                com.hitherejoe.bourboncommon.R.color.colorPrimary);
-        sSelectedBackgroundColor = ContextCompat.getColor(context,
-                com.hitherejoe.bourboncommon.R.color.colorPrimaryDark);
+        sDefaultBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimary);
+        sSelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimaryDark);
         mDefaultCardImage = ContextCompat.getDrawable(context, android.R.drawable.alert_dark_frame);
 
         final ImageCardView cardView = new ImageCardView(parent.getContext()) {

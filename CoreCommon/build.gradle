@@ -13,7 +13,6 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.hitherejoe.bourboncommon.test.runner.RxAndroidJUnitRunner"
 
         buildConfigField("String", "DRIBBBLE_API_URL",
                 "\"${dribbbleApiUrl}\"")
@@ -49,9 +48,6 @@ dependencies {
     final OKHTTP_VERSION = '3.2.0'
     final DAGGER_VERSION = '2.2'
     final HAMCREST_VERSION = '1.3'
-    final ESPRESSO_VERSION = '2.2.1'
-    final RUNNER_VERSION = '0.4'
-    final DEXMAKER_VERSION = '1.4'
 
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     def jUnit = "junit:junit:4.12"

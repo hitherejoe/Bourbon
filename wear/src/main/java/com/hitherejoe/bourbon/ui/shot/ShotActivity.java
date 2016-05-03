@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.ui.shot.ShotMvpView;
-import com.hitherejoe.bourboncommon.common.ui.shot.ShotPresenter;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.ui.shot.ShotMvpView;
+import com.hitherejoe.bourboncorecommon.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.hitherejoe.androidtestcommon.helper;
 
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.injection.component.TestComponentRule;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.injection.component.TestComponentRule;
 
 import java.util.List;
 

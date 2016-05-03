@@ -6,11 +6,10 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.injection.component.TestComponentRule;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.injection.component.TestComponentRule;
 import com.hitherejoe.androidtestcommon.helper.StubHelper;
-import com.hitherejoe.androidtestcommon.common.TestDataFactory;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -31,9 +30,9 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.hitherejoe.androidtestcommon.util.CustomMatchers.withItemText;
-import static org.hamcrest.core.IsNot.not;
 
 import com.hitherejoe.bourbon.R;
+import com.hitherejoe.bourboncorecommon.util.TestDataFactory;
 
 @RunWith(AndroidJUnit4.class)
 public class BrowseActivityTest {

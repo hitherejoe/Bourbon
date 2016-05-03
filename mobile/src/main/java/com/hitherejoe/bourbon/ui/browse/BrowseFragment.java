@@ -18,9 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourboncommon.common.ui.browse.BrowsePresenter;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourboncorecommon.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourbon.util.DisplayMetricsUtil;
@@ -82,10 +82,8 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
         mShotRecycler.setHasFixedSize(true);
         mShotRecycler.setAdapter(mBrowseAdapter);
 
-        mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(
-                com.hitherejoe.bourboncommon.R.color.colorAccent);
-        mSwipeRefreshLayout.setColorSchemeResources(
-                com.hitherejoe.bourboncommon.R.color.colorPrimaryDark);
+        mSwipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.colorAccent);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

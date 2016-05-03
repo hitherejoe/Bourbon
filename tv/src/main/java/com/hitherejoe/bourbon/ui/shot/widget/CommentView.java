@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

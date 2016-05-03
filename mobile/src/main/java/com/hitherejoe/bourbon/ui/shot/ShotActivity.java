@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 
 public class ShotActivity extends BaseActivity {

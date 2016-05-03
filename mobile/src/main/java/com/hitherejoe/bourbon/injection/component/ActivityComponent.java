@@ -3,9 +3,9 @@ package com.hitherejoe.bourbon.injection.component;
 import com.hitherejoe.bourbon.ui.browse.BrowseFragment;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourbon.ui.shot.ShotFragment;
-import com.hitherejoe.bourboncommon.common.injection.PerActivity;
-import com.hitherejoe.bourboncommon.common.injection.component.ApplicationComponent;
-import com.hitherejoe.bourboncommon.common.injection.module.ActivityModule;
+import com.hitherejoe.bourboncorecommon.injection.PerActivity;
+import com.hitherejoe.bourboncorecommon.injection.component.ApplicationComponent;
+import com.hitherejoe.bourboncorecommon.injection.module.ActivityModule;
 
 import dagger.Component;
 

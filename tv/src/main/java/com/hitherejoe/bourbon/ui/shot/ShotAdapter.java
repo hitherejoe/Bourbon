@@ -5,8 +5,8 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
 import com.hitherejoe.bourbon.ui.shot.widget.CommentView;
 import com.hitherejoe.bourbon.ui.shot.widget.ShotView;
 

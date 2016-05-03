@@ -6,10 +6,10 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
-import com.hitherejoe.bourboncommon.common.data.model.Comment;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.injection.component.TestComponentRule;
-import com.hitherejoe.bourboncommon.util.TestDataFactory;
+import com.hitherejoe.bourboncorecommon.data.model.Comment;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.injection.component.TestComponentRule;
+import com.hitherejoe.bourboncorecommon.util.TestDataFactory;
 
 import org.junit.Rule;
 import org.junit.Test;

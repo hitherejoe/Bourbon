@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.hitherejoe.bourboncommon">
+<manifest package="com.hitherejoe.bourboncorecommon">
 
-    <application>
-
-    </application>
+    <application />
 
 </manifest>

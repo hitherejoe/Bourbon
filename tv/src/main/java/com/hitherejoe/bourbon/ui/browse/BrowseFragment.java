@@ -21,10 +21,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourboncommon.common.data.DataManager;
-import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourboncommon.common.ui.browse.BrowseMvpView;
-import com.hitherejoe.bourboncommon.common.ui.browse.BrowsePresenter;
+import com.hitherejoe.bourboncorecommon.data.DataManager;
+import com.hitherejoe.bourboncorecommon.data.model.Shot;
+import com.hitherejoe.bourboncorecommon.ui.browse.BrowseMvpView;
+import com.hitherejoe.bourboncorecommon.ui.browse.BrowsePresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 import com.hitherejoe.bourbon.ui.message.MessageFragment;
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
@@ -63,8 +63,7 @@ public class BrowseFragment extends VerticalGridFragment implements BrowseMvpVie
 
         setupFragment();
         prepareBackgroundManager();
-        setSearchAffordanceColor(ContextCompat.getColor(getActivity(),
-                com.hitherejoe.bourboncommon.R.color.colorAccent));
+        setSearchAffordanceColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
         mBrowseAdapter = new BrowseAdapter();
         setAdapter(mBrowseAdapter);
         setOnItemViewSelectedListener(mOnItemViewSelectedListener);
