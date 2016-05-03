@@ -5,6 +5,6 @@
 
     <!-- Specify runner and target application package -->
     <instrumentation
-        android:name="com.hitherejoe.bourboncommontest.runner.RxAndroidJUnitRunner"
+        android:name="com.hitherejoe.androidtestcommon.runner.RxAndroidJUnitRunner"
         android:targetPackage="com.hitherejoe.bourbon" />
 </manifest>

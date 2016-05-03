@@ -1,4 +1,4 @@
-package com.hitherejoe.bourboncommontest.runner;
+package com.hitherejoe.androidtestcommon.runner;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

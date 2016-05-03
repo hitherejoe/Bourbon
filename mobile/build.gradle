@@ -57,7 +57,7 @@ dependencies {
     def mockito = "org.mockito:mockito-core:1.10.5"
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
-    compile project(':common')
+    compile project(':CoreCommon')
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
@@ -65,7 +65,7 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
 
     // Instrumentation test dependencies
-    androidTestCompile project(':commonAndroidTest')
+    androidTestCompile project(':AndroidTestCommon')
 
     // APT dependencies
     apt daggerCompiler

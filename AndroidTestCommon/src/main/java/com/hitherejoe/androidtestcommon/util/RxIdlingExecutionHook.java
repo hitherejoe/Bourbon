@@ -1,4 +1,4 @@
-package com.hitherejoe.bourboncommontest.util;
+package com.hitherejoe.androidtestcommon.util;
 
 import rx.Observable;
 import rx.Subscription;

@@ -1,4 +1,4 @@
-package com.hitherejoe.bourboncommontest;
+package com.hitherejoe.androidtestcommon.helper;
 
 import com.hitherejoe.bourboncommon.common.data.model.Comment;
 import com.hitherejoe.bourboncommon.common.data.model.Shot;

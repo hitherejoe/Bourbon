@@ -28,6 +28,6 @@ dependencies {
     compile  "com.google.dagger:dagger:$DAGGER_VERSION"
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
 
-    compile project(':commonAndroidTest')
+    compile project(':AndroidTestCommon')
     apt daggerCompiler
 }

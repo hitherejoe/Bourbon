@@ -1,10 +1,10 @@
-package com.hitherejoe.bourboncommontest.runner;
+package com.hitherejoe.androidtestcommon.runner;
 
 import android.os.Bundle;
 import android.support.test.espresso.Espresso;
 
-import com.hitherejoe.bourboncommontest.util.RxIdlingExecutionHook;
-import com.hitherejoe.bourboncommontest.util.RxIdlingResource;
+import com.hitherejoe.androidtestcommon.util.RxIdlingExecutionHook;
+import com.hitherejoe.androidtestcommon.util.RxIdlingResource;
 
 import rx.plugins.RxJavaPlugins;
 

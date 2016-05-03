@@ -9,10 +9,9 @@ import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
 import com.hitherejoe.bourboncommon.common.data.model.Comment;
 import com.hitherejoe.bourboncommon.common.data.model.Shot;
 import com.hitherejoe.bourboncommon.common.injection.component.TestComponentRule;
-import com.hitherejoe.bourboncommontest.StubHelper;
-import com.hitherejoe.bourboncommontest.common.TestDataFactory;
+import com.hitherejoe.androidtestcommon.helper.StubHelper;
+import com.hitherejoe.androidtestcommon.common.TestDataFactory;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.RuleChain;
@@ -31,7 +30,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static com.hitherejoe.bourboncommontest.util.CustomMatchers.withItemText;
+import static com.hitherejoe.androidtestcommon.util.CustomMatchers.withItemText;
 import static org.hamcrest.core.IsNot.not;
 
 import com.hitherejoe.bourbon.R;

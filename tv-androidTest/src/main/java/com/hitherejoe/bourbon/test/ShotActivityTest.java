@@ -9,8 +9,8 @@ import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourboncommon.common.data.model.Comment;
 import com.hitherejoe.bourboncommon.common.data.model.Shot;
 import com.hitherejoe.bourboncommon.common.injection.component.TestComponentRule;
-import com.hitherejoe.bourboncommontest.StubHelper;
-import com.hitherejoe.bourboncommontest.common.TestDataFactory;
+import com.hitherejoe.androidtestcommon.helper.StubHelper;
+import com.hitherejoe.androidtestcommon.common.TestDataFactory;
 
 import org.junit.Rule;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.hitherejoe.bourboncommontest.util;
+package com.hitherejoe.androidtestcommon.util;
 
 import android.support.test.espresso.IdlingResource;
 
