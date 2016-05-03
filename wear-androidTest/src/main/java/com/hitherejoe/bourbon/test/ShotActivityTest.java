@@ -96,34 +96,14 @@ public class ShotActivityTest {
     }
 
     @Test
-    public void shotItemViewsDisplayWhenClickingReload() {
+    public void shotItemViewsDisplayWhenClickingActionText() {
         Shot shot = TestDataFactory.makeShot(0);
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.<List<Comment>>error(new RuntimeException()));
         Intent intent = ShotActivity.newIntent(InstrumentationRegistry.getContext(), shot);
         main.launchActivity(intent);
 
-        Comment comment = TestDataFactory.makeComment(5);
-        when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
-                .thenReturn(Single.just(Collections.singletonList(comment)));
-        onView(withId(R.id.text_message_action))
-                .perform(click());
-
-        onView(withText(comment.user.username))
-                .check(matches(isDisplayed()));
-        onView(withText(comment.body))
-                .check(matches(isDisplayed()));
-    }
-
-    @Test
-    public void shotItemViewsDisplayWhenClickingCheckAgain() throws InterruptedException {
-        Shot shot = TestDataFactory.makeShot(0);
-        when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
-                .thenReturn(Single.just(Collections.<Comment>emptyList()));
-        Intent intent = ShotActivity.newIntent(InstrumentationRegistry.getContext(), shot);
-        main.launchActivity(intent);
-
-        Comment comment = TestDataFactory.makeComment(5);
+        Comment comment = TestDataFactory.makeComment(0);
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(comment)));
         onView(withId(R.id.text_message_action))
