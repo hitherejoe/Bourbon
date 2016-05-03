@@ -28,6 +28,10 @@ To build, install and run a debug version, run this from the root of the project
 Testing
 -------
 
+To run the Unit Test found in the CoreCommon module, run the following command from the root of the project:
+
+	./gradlew corecommon:testDebugUnitTest
+
 As mentioned the the structure section above, each of the instrumentation tests are split into a seperate module. You can run the instrumentation tests for these modules by running the commands below from the root of the project:
 
 

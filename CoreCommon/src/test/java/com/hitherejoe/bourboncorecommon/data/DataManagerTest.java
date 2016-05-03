@@ -68,7 +68,7 @@ public class DataManagerTest {
     }
 
     private void stubBourbonServiceGetComments(Single<List<Comment>> single) {
-        when(mMockBourbonService.getComments(anyInt(), anyString(), 0, 0)).thenReturn(single);
+        when(mMockBourbonService.getComments(anyInt(), anyString(), anyInt(), anyInt())).thenReturn(single);
     }
 
 }
