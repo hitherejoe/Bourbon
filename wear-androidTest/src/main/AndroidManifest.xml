@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hitherejoe.bourbon.test"
+    tools:ignore="MissingLeanbackLauncher,MissingLeanbackSupport">
+
+    <!-- Specify runner and target application package -->
+    <instrumentation
+        android:name="com.hitherejoe.bourboncommontest.runner.RxAndroidJUnitRunner"
+        android:targetPackage="com.hitherejoe.bourbon" />
+</manifest>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Shot;
+import com.hitherejoe.bourboncommon.common.data.model.Shot;
 import com.hitherejoe.bourbon.ui.comment.CommentActivity;
 
 import java.text.DecimalFormat;

@@ -18,18 +18,18 @@
         android:visibility="gone" />
 
     <RelativeLayout
-        android:id="@+id/layout_error"
+        android:id="@+id/layout_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
         <ImageView
-            android:id="@+id/image_error"
+            android:id="@+id/image_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/text_error"
+            android:id="@+id/text_messager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

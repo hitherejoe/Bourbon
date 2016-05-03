@@ -7,13 +7,14 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hitherejoe.bourbon.R;
-import com.hitherejoe.bourbon.common.data.model.Comment;
-import com.hitherejoe.bourbon.common.data.model.Shot;
-import com.hitherejoe.bourbon.common.ui.shot.ShotMvpView;
-import com.hitherejoe.bourbon.common.ui.shot.ShotPresenter;
+import com.hitherejoe.bourboncommon.common.data.model.Comment;
+import com.hitherejoe.bourboncommon.common.data.model.Shot;
+import com.hitherejoe.bourboncommon.common.ui.shot.ShotMvpView;
+import com.hitherejoe.bourboncommon.common.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
 
 import java.util.List;
@@ -22,29 +23,21 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     public static final String EXTRA_SHOT =
             "com.hitherejoe.bourbon.ui.comment.CommentActivity.EXTRA_SHOT";
 
-    @Bind(R.id.pager_comments)
-    ViewPager mShotsPager;
-    @Bind(R.id.progress)
-    ProgressBar mProgress;
-    @Bind(R.id.layout_error)
-    View mErrorView;
-    @Bind(R.id.text_error)
-    TextView mErrorText;
-    @Bind(R.id.image_error)
-    ImageView mErrorImage;
+    @Bind(R.id.image_message) ImageView mErrorImage;
+    @Bind(R.id.page_indicator) PagerIndicatorView mPagerIndicatorView;
+    @Bind(R.id.progress) ProgressBar mProgress;
+    @Bind(R.id.layout_footer) RelativeLayout mFooterlayout;
+    @Bind(R.id.text_messager) TextView mErrorText;
+    @Bind(R.id.layout_message) View mErrorView;
+    @Bind(R.id.pager_comments) ViewPager mShotsPager;
 
-    @Bind(R.id.page_indicator)
-    PagerIndicatorView mPagerIndicatorView;
-
-    @Inject
-    ShotPresenter mShotPresenter;
+    @Inject ShotPresenter mShotPresenter;
 
     private CommentsAdapter mCommentAdapter;
 
@@ -90,16 +83,27 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         mCommentAdapter.notifyDataSetChanged();
         mPagerIndicatorView.attachViewPager(mShotsPager);
         mPagerIndicatorView.bringToFront();
+        setUIErrorState(false);
     }
 
     @Override
     public void showError() {
-        Timber.e("ERROR");
+        mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_48dp);
+        mErrorText.setText(getString(R.string.text_error_loading_shots));
+        setUIErrorState(true);
     }
 
     @Override
     public void showEmptyComments() {
+        mErrorImage.setImageResource(R.drawable.ic_empty_glass_gray_48dp);
+        mErrorText.setText(getString(R.string.text_no_recent_comments));
+        setUIErrorState(true);
+    }
 
+    private void setUIErrorState(boolean isError) {
+        mShotsPager.setVisibility(isError ? View.GONE : View.VISIBLE);
+        mFooterlayout.setVisibility(isError ? View.GONE : View.VISIBLE);
+        mErrorView.setVisibility(isError ? View.VISIBLE : View.GONE);
     }
 
     @Override

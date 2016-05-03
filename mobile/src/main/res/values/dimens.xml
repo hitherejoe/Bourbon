@@ -7,4 +7,7 @@
     <dimen name="shot_item_margin">0dp</dimen>
     <dimen name="shot_item_margin_bottom">8dp</dimen>
     <dimen name="shot_image_height">300dp</dimen>
+    <dimen name="shot_comments_margin_bottom">0dp</dimen>
+
+    <dimen name="content_recycler_view_padding">0dp</dimen>
 </resources>
