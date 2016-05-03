@@ -17,23 +17,37 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/layout_message"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
         android:visibility="gone">
 
         <ImageView
             android:id="@+id/image_message"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
-            android:id="@+id/text_messager"
+            android:id="@+id/text_message"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black_86p" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/text_message_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/layout_footer"
@@ -54,8 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/separator_line"
             android:layout_centerHorizontal="true"
-            android:paddingTop="10dp"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="16dp"
+            android:paddingTop="10dp" />
 
     </RelativeLayout>
 

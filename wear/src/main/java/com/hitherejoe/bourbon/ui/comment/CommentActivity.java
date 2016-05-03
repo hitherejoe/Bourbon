@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CommentActivity extends BaseActivity implements ShotMvpView {
 
@@ -33,13 +34,15 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     @Bind(R.id.page_indicator) PagerIndicatorView mPagerIndicatorView;
     @Bind(R.id.progress) ProgressBar mProgress;
     @Bind(R.id.layout_footer) RelativeLayout mFooterlayout;
-    @Bind(R.id.text_messager) TextView mErrorText;
+    @Bind(R.id.text_message) TextView mErrorText;
+    @Bind(R.id.text_message_action) TextView mActionText;
     @Bind(R.id.layout_message) View mErrorView;
     @Bind(R.id.pager_comments) ViewPager mShotsPager;
 
     @Inject ShotPresenter mShotPresenter;
 
     private CommentsAdapter mCommentAdapter;
+    private Shot mShot;
 
     public static Intent newIntent(Context context, Shot shot) {
         Intent intent = new Intent(context, CommentActivity.class);
@@ -54,9 +57,9 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         ButterKnife.bind(this);
         activityComponent().inject(this);
 
-        Shot shot = getIntent().getParcelableExtra(EXTRA_SHOT);
+        mShot = getIntent().getParcelableExtra(EXTRA_SHOT);
 
-        if (shot == null) {
+        if (mShot == null) {
             throw new IllegalArgumentException("CommentActivity requires a shot instance!");
         }
 
@@ -64,7 +67,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         mCommentAdapter = new CommentsAdapter(this);
         mShotsPager.setAdapter(mCommentAdapter);
 
-        mShotPresenter.getComments(shot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
+        mShotPresenter.getComments(mShot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
     }
 
     @Override
@@ -79,6 +82,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     @Override
     public void showComments(List<Comment> comments) {
+        comments.clear();
         mCommentAdapter.setComments(comments);
         mCommentAdapter.notifyDataSetChanged();
         mPagerIndicatorView.attachViewPager(mShotsPager);
@@ -90,6 +94,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     public void showError() {
         mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_48dp);
         mErrorText.setText(getString(R.string.text_error_loading_shots));
+        mActionText.setText(getString(R.string.text_reload));
         setUIErrorState(true);
     }
 
@@ -97,6 +102,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     public void showEmptyComments() {
         mErrorImage.setImageResource(R.drawable.ic_empty_glass_gray_48dp);
         mErrorText.setText(getString(R.string.text_no_recent_comments));
+        mActionText.setText(getString(R.string.text_check_again));
         setUIErrorState(true);
     }
 
@@ -109,6 +115,11 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     @Override
     public void showCommentsTitle(boolean hasComments) {
 
+    }
+
+    @OnClick(R.id.text_message_action)
+    public void onTextMessageActionClick() {
+        mShotPresenter.getComments(mShot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
     }
 
 }

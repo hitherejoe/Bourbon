@@ -96,6 +96,6 @@ public class BrowseActivity extends BaseActivity implements BrowseMvpView {
 
     @OnClick(R.id.layout_error)
     public void onErrorLayoutClick() {
-        mBrowsePresenter.getShots(20, 0);
+        mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
     }
 }
