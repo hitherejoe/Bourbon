@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.comment.CommentActivity" />
+        <activity android:name=".ui.shot.ShotActivity" />
 
     </application>
 

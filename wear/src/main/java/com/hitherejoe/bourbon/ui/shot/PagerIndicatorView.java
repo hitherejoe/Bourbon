@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.ui.comment;
+package com.hitherejoe.bourbon.ui.shot;
 
 import android.content.Context;
 import android.content.res.Resources;

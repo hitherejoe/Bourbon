@@ -124,12 +124,14 @@ public class BrowseActivityTest {
 
     @Test
     public void clickingShotNavigatesToShotActivity() throws InterruptedException {
+        Comment comment = TestDataFactory.makeComment(0);
         Shot shot = TestDataFactory.makeShot(0);
         when(component.getMockDataManager().getShots(anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(shot)));
-        when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
-                .thenReturn(Single.just(Collections.singletonList(TestDataFactory.makeComment(0))));
         main.launchActivity(null);
+
+        when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
+                .thenReturn(Single.just(TestDataFactory.makeComments(5)));
 
         onView(withId(R.id.image_shot))
                 .perform(click());

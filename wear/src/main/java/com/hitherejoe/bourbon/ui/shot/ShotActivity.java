@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.ui.comment;
+package com.hitherejoe.bourbon.ui.shot;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,10 +25,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CommentActivity extends BaseActivity implements ShotMvpView {
+public class ShotActivity extends BaseActivity implements ShotMvpView {
 
     public static final String EXTRA_SHOT =
-            "com.hitherejoe.bourbon.ui.comment.CommentActivity.EXTRA_SHOT";
+            "com.hitherejoe.bourbon.ui.comment.ShotActivity.EXTRA_SHOT";
 
     @Bind(R.id.image_message) ImageView mErrorImage;
     @Bind(R.id.page_indicator) PagerIndicatorView mPagerIndicatorView;
@@ -41,11 +41,11 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     @Inject ShotPresenter mShotPresenter;
 
-    private CommentsAdapter mCommentAdapter;
+    private CommentAdapter mCommentAdapter;
     private Shot mShot;
 
     public static Intent newIntent(Context context, Shot shot) {
-        Intent intent = new Intent(context, CommentActivity.class);
+        Intent intent = new Intent(context, ShotActivity.class);
         intent.putExtra(EXTRA_SHOT, shot);
         return intent;
     }
@@ -60,11 +60,11 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
         mShot = getIntent().getParcelableExtra(EXTRA_SHOT);
 
         if (mShot == null) {
-            throw new IllegalArgumentException("CommentActivity requires a shot instance!");
+            throw new IllegalArgumentException("ShotActivity requires a shot instance!");
         }
 
         mShotPresenter.attachView(this);
-        mCommentAdapter = new CommentsAdapter(this);
+        mCommentAdapter = new CommentAdapter(this);
         mShotsPager.setAdapter(mCommentAdapter);
 
         mShotPresenter.getComments(mShot.id, ShotPresenter.SHOT_COUNT, ShotPresenter.SHOT_PAGE);
@@ -82,7 +82,6 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
 
     @Override
     public void showComments(List<Comment> comments) {
-        comments.clear();
         mCommentAdapter.setComments(comments);
         mCommentAdapter.notifyDataSetChanged();
         mPagerIndicatorView.attachViewPager(mShotsPager);
@@ -93,7 +92,7 @@ public class CommentActivity extends BaseActivity implements ShotMvpView {
     @Override
     public void showError() {
         mErrorImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_48dp);
-        mErrorText.setText(getString(R.string.text_error_loading_shots));
+        mErrorText.setText(getString(R.string.text_error_loading_comments));
         mActionText.setText(getString(R.string.text_reload));
         setUIErrorState(true);
     }

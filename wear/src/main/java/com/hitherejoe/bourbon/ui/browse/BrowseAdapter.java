@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.hitherejoe.bourbon.R;
 import com.hitherejoe.bourboncommon.common.data.model.Shot;
-import com.hitherejoe.bourbon.ui.comment.CommentActivity;
+import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 
 import java.text.DecimalFormat;
 import java.util.Collections;
@@ -112,7 +112,7 @@ public class BrowseAdapter extends GridPagerAdapter {
             frameLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mContext.startActivity(CommentActivity.newIntent(mContext, shot));
+                    mContext.startActivity(ShotActivity.newIntent(mContext, shot));
                 }
             });
         }

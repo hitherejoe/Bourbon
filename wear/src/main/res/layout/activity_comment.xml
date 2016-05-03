@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:textColor="@color/black_86p" />
 
         <TextView
@@ -45,6 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:gravity="center_horizontal"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
@@ -62,7 +65,7 @@
             android:layout_height="1dp"
             android:background="@color/gray" />
 
-        <com.hitherejoe.bourbon.ui.comment.PagerIndicatorView
+        <com.hitherejoe.bourbon.ui.shot.PagerIndicatorView
             android:id="@+id/page_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

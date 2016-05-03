@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.ui.comment;
+package com.hitherejoe.bourbon.ui.shot;
 
 
 import android.content.Context;
@@ -17,12 +17,12 @@ import com.hitherejoe.bourboncommon.common.data.model.Comment;
 import java.util.Collections;
 import java.util.List;
 
-public class CommentsAdapter extends PagerAdapter {
+public class CommentAdapter extends PagerAdapter {
 
     private Context mContext;
     private List<Comment> mComments;
 
-    public CommentsAdapter(Context context) {
+    public CommentAdapter(Context context) {
         mContext = context;
         mComments = Collections.emptyList();
     }
