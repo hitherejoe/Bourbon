@@ -7,6 +7,8 @@ import com.hitherejoe.bourboncorecommon.injection.component.ApplicationComponent
 import com.hitherejoe.bourboncorecommon.injection.component.DaggerApplicationComponent;
 import com.hitherejoe.bourboncorecommon.injection.module.ApplicationModule;
 
+import timber.log.Timber;
+
 public class BourbonApplication extends Application  {
 
     ApplicationComponent mApplicationComponent;
@@ -15,7 +17,7 @@ public class BourbonApplication extends Application  {
     public void onCreate() {
         super.onCreate();
 
-        //if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
+        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
         mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .build();
