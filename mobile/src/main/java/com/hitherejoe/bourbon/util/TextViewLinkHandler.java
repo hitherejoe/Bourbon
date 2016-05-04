@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public abstract class TextViewLinkHandler extends LinkMovementMethod {
 
+    abstract public void onLinkClick(String url);
+
     public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
         if (event.getAction() != MotionEvent.ACTION_UP)
             return super.onTouchEvent(widget, buffer, event);
@@ -33,5 +35,4 @@ public abstract class TextViewLinkHandler extends LinkMovementMethod {
         return true;
     }
 
-    abstract public void onLinkClick(String url);
 }

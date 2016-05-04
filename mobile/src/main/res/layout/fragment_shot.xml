@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/text_like_count"
-                    android:src="@drawable/ic_heart_accent_24dp"
+                    android:src="@drawable/ic_heart_accent_accent_24dp"
                     android:transitionName="@string/transition_shot_like_image" />
 
                 <TextView

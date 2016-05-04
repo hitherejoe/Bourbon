@@ -48,7 +48,7 @@
                 android:id="@+id/image_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_heart_accent_24dp"
+                android:src="@drawable/ic_heart_accent_accent_24dp"
                 android:transitionName="@string/transition_shot_like_image" />
 
             <TextView

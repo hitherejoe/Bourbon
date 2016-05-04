@@ -66,14 +66,10 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     class CommentViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.image_avatar)
-        ImageView userImage;
-        @Bind(R.id.text_user_name)
-        TextView userNameText;
-        @Bind(R.id.text_time)
-        TextView timeText;
-        @Bind(R.id.text_comment)
-        TextView commentText;
+        @Bind(R.id.image_avatar) ImageView userImage;
+        @Bind(R.id.text_user_name) TextView userNameText;
+        @Bind(R.id.text_time) TextView timeText;
+        @Bind(R.id.text_comment) TextView commentText;
 
         public Comment mComment;
 

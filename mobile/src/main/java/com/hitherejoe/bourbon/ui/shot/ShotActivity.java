@@ -26,25 +26,13 @@ public class ShotActivity extends BaseActivity {
         if (shot == null) {
             throw new IllegalArgumentException("Shot activity requires a shot instance!");
         }
-
         activityComponent().inject(this);
         setContentView(R.layout.activity_shot);
-       // Slide slide = new Slide();
-       // slide.setDuration(1000);
-       // getWindow().setReturnTransition(slide);
 
         ShotFragment shotFragment = ShotFragment.newInstance(shot);
-       // postponeEnterTransition();
-
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame_container, shotFragment)
                 .commit();
-      //  getSupportFragmentManager().executePendingTransactions();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-       // supportFinishAfterTransition();
-    }
 }

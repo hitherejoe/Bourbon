@@ -23,9 +23,6 @@ import butterknife.ButterKnife;
 
 public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final int VIEW_ITEM = 1;
-    private final int VIEW_PROG = 0;
-
     private List<Shot> mShots;
     private ClickListener mClickListener;
 
@@ -48,16 +45,10 @@ public class BrowseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public int getItemViewType(int position) {
-        return mShots.get(position) != null ? VIEW_ITEM : VIEW_PROG;
-    }
-
-    @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater
-                    .from(parent.getContext())
-                    .inflate(R.layout.item_shot, parent, false);
-        return new ShotViewHolder(v);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_shot, parent, false);
+        return new ShotViewHolder(view);
     }
 
     @Override

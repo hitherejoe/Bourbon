@@ -1,8 +1,3 @@
 <resources>
-    <!-- Transitions -->
-    <string name="transition_shot_image" translatable="false">shot_image_transition</string>
-    <string name="transition_shot_title" translatable="false">shot_title_transition</string>
-    <string name="transition_shot_like_image" translatable="false">shot_likes_image_transition</string>
-    <string name="transition_shot_like_text" translatable="false">shot_likes_text_transition</string>
-    <string name="transition_shot_header" translatable="false">shot_header_transition</string>
+
 </resources>

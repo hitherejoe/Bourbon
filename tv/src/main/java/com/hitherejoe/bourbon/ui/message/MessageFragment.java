@@ -74,7 +74,7 @@ public class MessageFragment extends Fragment {
                 getString(R.string.text_no_shots) : getString(R.string.text_error_loading_shots));
         mMessageButton.setText(mType == TYPE_EMPTY ?
                 getString(R.string.text_check_again) : getString(R.string.text_reload));
-        mMessageImage.setImageResource(mType == TYPE_EMPTY ? R.drawable.ic_empty_glass_120dp :
-                R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
+        mMessageImage.setImageResource(mType == TYPE_EMPTY ? R.drawable.ic_empty_glass_accent_120dp :
+                R.drawable.ic_sentiment_very_dissatisfied_accent_120dp);
     }
 }

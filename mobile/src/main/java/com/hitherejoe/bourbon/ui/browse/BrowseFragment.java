@@ -159,7 +159,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     @Override
     public void showError() {
         mShotRecycler.setVisibility(View.GONE);
-        mMessageImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_black_120dp);
+        mMessageImage.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_gray_120dp);
         mMessageText.setText(getString(R.string.text_error_loading_shots));
         mMessageButton.setText(getString(R.string.text_reload));
         showMessageLayout(true);
@@ -168,7 +168,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     @Override
     public void showEmpty() {
         mShotRecycler.setVisibility(View.GONE);
-        mMessageImage.setImageResource(R.drawable.ic_empty_glass_120dp);
+        mMessageImage.setImageResource(R.drawable.ic_empty_glass_gray_120dp);
         mMessageText.setText(getString(R.string.text_no_shots));
         mMessageButton.setText(getString(R.string.text_check_again));
         showMessageLayout(true);
