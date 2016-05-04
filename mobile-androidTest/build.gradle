@@ -9,7 +9,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 23
         testApplicationId 'com.hitherejoe.bourbon.test'
-        testInstrumentationRunner "com.hitherejoe.bourboncommontest.runner.RxAndroidJUnitRunner"
+        testInstrumentationRunner "com.hitherejoe.androidtestcommon.runner.RxAndroidJUnitRunner"
     }
 
     packagingOptions {
