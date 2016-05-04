@@ -45,7 +45,7 @@ public class ShotActivityTest {
 
     @Test
     public void shotViewsDisplay() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         StubHelper.stubDataManagerGetComments(component,
                 Single.just(Collections.<Comment>emptyList()));
         Intent intent = ShotActivity.newStartIntent(InstrumentationRegistry.getContext(), shot);
@@ -61,7 +61,7 @@ public class ShotActivityTest {
 
     @Test
     public void detailViewDisplays() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         StubHelper.stubDataManagerGetComments(component,
                 Single.just(Collections.<Comment>emptyList()));
         Intent intent = ShotActivity.newStartIntent(InstrumentationRegistry.getContext(), shot);
@@ -80,7 +80,7 @@ public class ShotActivityTest {
 
     @Test
     public void commentsDisplayAndAreBrowseable() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         List<Comment> comments = TestDataFactory.makeComments(10);
         StubHelper.stubDataManagerGetComments(component, Single.just(comments));
         Intent intent = ShotActivity.newStartIntent(InstrumentationRegistry.getContext(), shot);

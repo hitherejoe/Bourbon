@@ -26,9 +26,9 @@ public class TestDataFactory {
         return sRandom.nextInt();
     }
 
-    public static Shot makeShot(int id) {
+    public static Shot makeShot() {
         Shot shot = new Shot();
-        shot.id = id;
+        shot.id = randomInt();
         shot.title = randomUuid();
         shot.description = randomUuid();
         shot.image = randomUuid();
@@ -38,37 +38,37 @@ public class TestDataFactory {
         shot.images.hidpi = randomUuid();
         shot.images.normal = randomUuid();
         shot.images.teaser = randomUuid();
-        shot.user = makeUser(0);
+        shot.user = makeUser();
         return shot;
     }
 
     public static List<Shot> makeShots(int count) {
         List<Shot> shots = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            shots.add(makeShot(i));
+            shots.add(makeShot());
         }
         return shots;
     }
 
-    public static Comment makeComment(int id) {
+    public static Comment makeComment() {
         Comment comment = new Comment();
         comment.id = sRandom.nextInt();
         comment.body = randomUuid();
-        comment.user = makeUser(sRandom.nextInt());
+        comment.user = makeUser();
         return comment;
     }
 
     public static List<Comment> makeComments(int count) {
         List<Comment> comments = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            comments.add(makeComment(i));
+            comments.add(makeComment());
         }
         return comments;
     }
 
-    public static User makeUser(int id) {
+    public static User makeUser() {
         User user = new User();
-        user.id = id;
+        user.id = randomInt();
         user.name = randomUuid();
         user.htmlUrl = randomUuid();
         user.avatarUrl = randomUuid();

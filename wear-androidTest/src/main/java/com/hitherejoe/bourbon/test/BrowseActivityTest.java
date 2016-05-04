@@ -79,7 +79,7 @@ public class BrowseActivityTest {
                 .thenReturn(Single.<List<Shot>>error(new RuntimeException()));
         main.launchActivity(null);
 
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getShots(anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(shot)));
         onView(withText(R.string.text_reload))
@@ -96,7 +96,7 @@ public class BrowseActivityTest {
                 .thenReturn(Single.just(Collections.<Shot>emptyList()));
         main.launchActivity(null);
 
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getShots(anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(shot)));
         onView(withText(R.string.text_reload))
@@ -124,8 +124,7 @@ public class BrowseActivityTest {
 
     @Test
     public void clickingShotNavigatesToShotActivity() throws InterruptedException {
-        Comment comment = TestDataFactory.makeComment(0);
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getShots(anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(shot)));
         main.launchActivity(null);

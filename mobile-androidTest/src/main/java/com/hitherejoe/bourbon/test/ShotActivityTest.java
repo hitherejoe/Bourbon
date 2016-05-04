@@ -47,7 +47,7 @@ public class ShotActivityTest {
 
     @Test
     public void showItemViewsDisplay() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.<Comment>emptyList()));
         Intent intent = ShotActivity.getStartIntent(
@@ -64,7 +64,7 @@ public class ShotActivityTest {
 
     @Test
     public void commentItemViewsDisplay() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         List<Comment> comments = TestDataFactory.makeComments(1);
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(comments));
@@ -85,7 +85,7 @@ public class ShotActivityTest {
 
     @Test
     public void commentErrorMessageDisplaysWhenFailingToLoadComments() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.<List<Comment>>error(new RuntimeException()));
         Intent intent = ShotActivity.getStartIntent(
@@ -100,7 +100,7 @@ public class ShotActivityTest {
 
     @Test
     public void noCommentsMessageDisplayedWhenNoCommentsReturnedFromApi() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.<Comment>emptyList()));
         Intent intent = ShotActivity.getStartIntent(

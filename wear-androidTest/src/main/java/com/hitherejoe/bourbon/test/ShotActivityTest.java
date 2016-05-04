@@ -49,7 +49,7 @@ public class ShotActivityTest {
 
     @Test
     public void commentsDisplayAndAreBrowsable() throws InterruptedException {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         List<Comment> comments = TestDataFactory.makeComments(5);
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(comments));
@@ -69,7 +69,7 @@ public class ShotActivityTest {
 
     @Test
     public void errorViewDisplaysWhenLoadingContentFails() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.<List<Comment>>error(new RuntimeException()));
         Intent intent = ShotActivity.newIntent(InstrumentationRegistry.getContext(), shot);
@@ -83,7 +83,7 @@ public class ShotActivityTest {
 
     @Test
     public void emptyViewDisplaysWhenNoCommentsReturned() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.<Comment>emptyList()));
         Intent intent = ShotActivity.newIntent(InstrumentationRegistry.getContext(), shot);
@@ -97,13 +97,13 @@ public class ShotActivityTest {
 
     @Test
     public void shotItemViewsDisplayWhenClickingActionText() {
-        Shot shot = TestDataFactory.makeShot(0);
+        Shot shot = TestDataFactory.makeShot();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.<List<Comment>>error(new RuntimeException()));
         Intent intent = ShotActivity.newIntent(InstrumentationRegistry.getContext(), shot);
         main.launchActivity(intent);
 
-        Comment comment = TestDataFactory.makeComment(0);
+        Comment comment = TestDataFactory.makeComment();
         when(component.getMockDataManager().getComments(anyInt(), anyInt(), anyInt()))
                 .thenReturn(Single.just(Collections.singletonList(comment)));
         onView(withId(R.id.text_message_action))
