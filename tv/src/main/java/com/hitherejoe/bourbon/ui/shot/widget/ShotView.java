@@ -86,7 +86,7 @@ public class ShotView extends FrameLayout {
     }
 
     private void animateViewOut() {
-       mShotDetail.animate().translationY(mShotDetail.getTop()-mShotDetail.getHeight())
+       mShotDetail.animate().translationY(mShotDetail.getTop() - mShotDetail.getHeight())
                 .setInterpolator(new LinearOutSlowInInterpolator())
                 .setListener(mAnimatorListener).start();
     }

@@ -89,11 +89,11 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
 
     @Override
     public void showEmptyComments() {
-
+        // If there's no comments then they'll just be no pages
     }
 
     @Override
     public void showCommentsTitle(boolean hasComments) {
-
+        // Not implemented for TV.
     }
 }
