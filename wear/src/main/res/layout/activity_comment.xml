@@ -65,7 +65,7 @@
             android:layout_height="1dp"
             android:background="@color/gray" />
 
-        <com.hitherejoe.bourbon.ui.shot.PagerIndicatorView
+        <com.hitherejoe.bourbon.ui.shot.CircleIndicatorView
             android:id="@+id/page_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -11,7 +11,7 @@ import com.hitherejoe.bourboncorecommon.data.model.Shot;
 import com.hitherejoe.bourboncorecommon.ui.shot.ShotMvpView;
 import com.hitherejoe.bourboncorecommon.ui.shot.ShotPresenter;
 import com.hitherejoe.bourbon.ui.base.BaseActivity;
-import com.hitherejoe.bourbon.ui.shot.widget.PagerIndicatorView;
+import com.hitherejoe.bourbon.ui.shot.widget.RectangleIndicatorView;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
     ShotPresenter mShotPresenter;
 
     @Bind(R.id.page_indicator)
-    PagerIndicatorView mPagerIndicatorView;
+    RectangleIndicatorView mRectangleIndicatorView;
 
     public static Intent newStartIntent(Context context, Shot shot) {
         Intent intent = new Intent(context, ShotActivity.class);
@@ -78,7 +78,7 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
     public void showComments(List<Comment> comments) {
         mShotAdapter.setComments(comments);
         mShotAdapter.notifyDataSetChanged();
-        mPagerIndicatorView.attachViewPager(mShotPager);
+        mRectangleIndicatorView.attachViewPager(mShotPager);
 
     }
 

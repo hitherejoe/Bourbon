@@ -1,4 +1,4 @@
-package com.hitherejoe.bourbon.ui.shot.widget;
+package com.hitherejoe.bourbon.ui.shot;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -10,39 +10,34 @@ import android.widget.LinearLayout;
 
 import com.hitherejoe.bourbon.R;
 
-/**
- * Simple view pager indicator that uses circles to indicate the pages.
- * Just place this view in your layout and call {@link #attachViewPager(ViewPager)} to use it
- * with your view pager.
- */
-public class PagerIndicatorView extends LinearLayout {
+public class CircleIndicatorView extends LinearLayout {
 
-    private final int mIndicatorSize = dpToPx(12);
-    private final int mIndicatorMargin = dpToPx(6);
-    private ViewPager mViewPager;
+    private final int mIndicatorSize = dpToPx(4);
+    private final int mIndicatorMargin = dpToPx(2);
 
     public int dpToPx(int dp) {
         float density = Resources.getSystem().getDisplayMetrics().density;
         return Math.round(dp * density);
     }
+    private ViewPager mViewPager;
 
-    public PagerIndicatorView(Context context) {
+    public CircleIndicatorView(Context context) {
         super(context);
         init();
     }
 
-    public PagerIndicatorView(Context context, AttributeSet attrs) {
+    public CircleIndicatorView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public PagerIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircleIndicatorView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    public PagerIndicatorView(Context context, AttributeSet attrs, int defStyleAttr,
-                              int defStyleRes) {
+    public CircleIndicatorView(Context context, AttributeSet attrs, int defStyleAttr,
+                               int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -51,10 +46,6 @@ public class PagerIndicatorView extends LinearLayout {
         setOrientation(HORIZONTAL);
     }
 
-    /**
-     * Attaches the view pager to this indicator. Please make sure your you set a PagerAdapter in
-     * your ViewPager before calling this method.
-     */
     public void attachViewPager(ViewPager viewPager) {
         detachViewPager();
 
@@ -70,9 +61,6 @@ public class PagerIndicatorView extends LinearLayout {
         selectIndicatorAtPosition(viewPager.getCurrentItem(), false);
     }
 
-    /**
-     * Clear any listener set in the view pager and its reference.
-     */
     public void detachViewPager() {
         if (mViewPager != null) {
             mViewPager.removeOnPageChangeListener(mOnPageChangeListener);
@@ -90,11 +78,11 @@ public class PagerIndicatorView extends LinearLayout {
 
     private View makeIndicatorView() {
         View view = new View(getContext());
-        LayoutParams params =
-                new LayoutParams((int) (mIndicatorSize * 1.5), mIndicatorSize);
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(mIndicatorSize, mIndicatorSize);
         params.setMargins(mIndicatorMargin, mIndicatorMargin, mIndicatorMargin, mIndicatorMargin);
         view.setLayoutParams(params);
-        view.setBackgroundResource(R.drawable.rectangle_accent);
+        view.setBackgroundResource(R.drawable.circle_accent);
         return view;
     }
 
@@ -102,10 +90,10 @@ public class PagerIndicatorView extends LinearLayout {
         for (int i = 0; i < getChildCount(); i++) {
             View child = getChildAt(i);
             if (i == position) {
-                child.setBackgroundResource(R.drawable.rectangle_accent);
+                child.setBackgroundResource(R.drawable.circle_accent);
                 scaleViewTo(child, 1.5f, animated);
             } else {
-                child.setBackgroundResource(R.drawable.rectangle_primary_dark);
+                child.setBackgroundResource(R.drawable.circle_primary_dark);
                 scaleViewTo(child, 1, animated);
             }
         }

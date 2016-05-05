@@ -31,7 +31,8 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
             "com.hitherejoe.bourbon.ui.comment.ShotActivity.EXTRA_SHOT";
 
     @Bind(R.id.image_message) ImageView mErrorImage;
-    @Bind(R.id.page_indicator) PagerIndicatorView mPagerIndicatorView;
+    @Bind(R.id.page_indicator)
+    CircleIndicatorView mCircleIndicatorView;
     @Bind(R.id.progress) ProgressBar mProgress;
     @Bind(R.id.layout_footer) RelativeLayout mFooterlayout;
     @Bind(R.id.text_message) TextView mErrorText;
@@ -84,8 +85,8 @@ public class ShotActivity extends BaseActivity implements ShotMvpView {
     public void showComments(List<Comment> comments) {
         mCommentAdapter.setComments(comments);
         mCommentAdapter.notifyDataSetChanged();
-        mPagerIndicatorView.attachViewPager(mShotsPager);
-        mPagerIndicatorView.bringToFront();
+        mCircleIndicatorView.attachViewPager(mShotsPager);
+        mCircleIndicatorView.bringToFront();
         setUIErrorState(false);
     }
 

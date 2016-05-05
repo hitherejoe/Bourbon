@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark" />
 
-    <com.hitherejoe.bourbon.ui.shot.widget.PagerIndicatorView
+    <com.hitherejoe.bourbon.ui.shot.widget.RectangleIndicatorView
         android:id="@+id/page_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
