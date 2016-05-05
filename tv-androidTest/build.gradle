@@ -9,12 +9,17 @@ android {
         minSdkVersion 21
         targetSdkVersion 23
         testApplicationId 'com.hitherejoe.bourbon.test'
-        testInstrumentationRunner "com.hitherejoe.bourboncommontest.runner.RxAndroidJUnitRunner"
+        testInstrumentationRunner "com.hitherejoe.androidtestcommon.runner.RxAndroidJUnitRunner"
     }
 
     packagingOptions {
         exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
         exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
+    }
+
+    //Needed because of this https://github.com/square/okio/issues/58
+    lintOptions {
+        warning 'InvalidPackage'
     }
 
     targetProjectPath ':tv'

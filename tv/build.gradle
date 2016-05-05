@@ -11,7 +11,7 @@ android {
         applicationId "com.hitherejoe.bourbon"
         minSdkVersion 21
         targetSdkVersion 23
-        testInstrumentationRunner "com.hitherejoe.bourboncommontest.runner.RxAndroidJUnitRunner"
+        testInstrumentationRunner "com.hitherejoe.androidtestcommon.runner.RxAndroidJUnitRunner"
         versionCode 1
         versionName "1.0"
 

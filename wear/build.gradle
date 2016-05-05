@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.hitherejoe.bourbon"
-        testInstrumentationRunner "${applicationId}.runner.RxAndroidJUnitRunner"
+        testInstrumentationRunner "com.hitherejoe.androidtestcommon.runner.RxAndroidJUnitRunner"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1

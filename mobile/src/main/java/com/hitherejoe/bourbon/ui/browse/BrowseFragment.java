@@ -49,7 +49,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     @Bind(R.id.layout_message) View mMessageLayout;
 
     private boolean mIsTabletLayout;
-    private boolean mIsLargeTablet;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,7 +67,6 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         mIsTabletLayout = DisplayMetricsUtil.isScreenW(600);
-        mIsLargeTablet = DisplayMetricsUtil.isScreenW(800);
 
         setupViews();
         mBrowsePresenter.getShots(BrowsePresenter.SHOT_COUNT, BrowsePresenter.SHOT_PAGE);
@@ -93,7 +91,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
     }
 
     private RecyclerView.LayoutManager setLayoutManager() {
-        RecyclerView.LayoutManager layoutManager = null;
+        RecyclerView.LayoutManager layoutManager;
         if (!mIsTabletLayout) {
             layoutManager = new LinearLayoutManager(getActivity());
         } else {
@@ -101,19 +99,7 @@ public class BrowseFragment extends Fragment implements BrowseMvpView,
             gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    if (mIsLargeTablet) {
-                        int positionMod = position % 5;
-
-                        switch (positionMod) {
-                            case 0:
-                            case 1:
-                                return 3;
-                            default:
-                                return 2;
-                        }
-                    } else {
-                        return 3;
-                    }
+                    return 3;
                 }
             });
             layoutManager = gridLayoutManager;
