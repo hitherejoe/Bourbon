@@ -12,35 +12,23 @@ Bourbon is a simple Dribbble client built for Android Mobile, Wear and TV (it's 
 
 Bourbon uses a CoreCommon module to share code amongst the different application packages, you can see from the long list below that this allows us to re-use a lot of the code for our app! The CoreCommon modules contains:
 
-- BourbonApplication - The Application class for our app, this can be used by all 3 of our application modules.
-- Data Models - These define the data models used throughout our application.
-- DataManager - Defines the methods used when making calls to the BourbonService class to fetch data from the API.
-- BourbonService - Used when retrieving data from the Dribbble API.
-- Dagger Injection Components and Modules - Defines the modules and components used for injection throughout the application.
-- Base Presenter and MvpView - Defines base classes used by each of the Presenters and MvpViews in the application.
-- BrowseMvpView & BrowsePresenter - Defines both the logic and interface methods used by the Browse screens in the application.
-- ShotMvpView & ShotPresenter - Defines both the logic and interface methods used by the Detail screens in the application.
-
-- Colors, String & Dimension files - Allows us to share common colors and text used throughout the application.
-
-- TestDataFactory - Used by both the Unit and Instrumentation tests, this allows us to create instances of our data models for use in the tests.
-- Unit Tests - Unit tests for the DataManager and Presenters are found here.
-
+- BourbonApplication - This is a standard Android application class that I’ve simply re-used for each of the application modules. This essentially uses Dagger to set up our ApplicationComponent and Timber for logging purposes.
+- Data Models - Seeing as our application modules are all going to be displaying the same data, it makes sense for them to share the Data Models. There are only 4 (minimal) models used in the application (Shot, User, Comment, Image) but sharing them in this module makes it easier to maintain them if they change at any point.
+- DataManager - The DataManager class acts as a middle-man for communication with the BourbonService. Again, the application modules all access the same data so sharing the DataManager is just logical.
+- BourbonService - The BourbonService states the endpoints and manages the retrieval of data from them. So as above with the DataManager, the behaviour is the same across application modules.
+- Dagger Injection Components and Modules - Seeing as we now know our three application modules use the same DataManager, BourbonService etc - it only makes sense to also share the logic related to Dagger injection. If you look at the injection package, you’ll see that there are several classes declaring components and modules, meaning that the same dependancies can be injected across the applications.
+- Base Presenter and MvpView - Bourbon uses base classes for Presenters and MvpViews that should be used when created new classes of these kinds. For this purpose, using them through the CoreCommon module ensures that all classes are extending or implementing the same base classes - this again also reduces code duplication.
+- BrowseMvpView & BrowsePresenter - The Browse screen for each of our application modules behaves in exactly the same way. A list of shots is retrieved and that list if displayed to the user - however, showing / hiding progress indicators, making an API request and correctly displaying with any empty / error states to the user. This means that the Presenter classes will contain the same logic and the MvpView interfaces will define exactly the same interface methods. Fir this reason it makes sense for both the BrowseMvpView & BrowsePresenter to be kept in the CoreCommon module so that these classes only need to be defined once to be shared across our application modules.
+- ShotMvpView & ShotPresenter - The same applies to the screens used to display Shot Details. The class and interface used to handle the display of content on the screen, so we share the ShotMvpView and ShotPresenter through the CoreCommon module.
+- Colors, String & Dimension files - Bourbon has specific branding colors, so this isn’t going to change across it’s applications modules. The same also goes for the Strings used throughout the application, there are also some Dimension values that also hold true to this. Because of this, I’ve placed these values in resource files in the CoreCommon module — meaning that they can be shared across the application modules. Now if any of these colors or Strings needs to be changed, I only have to do it once!
+- TestDataFactory - The TestDataFactory is a class used to construct dummy data models that are used in both the Unit and Instrumentation tests. For this purpose this class exists in the CoreCommon module, which is where the AndroidTestCommon module can access this class from.
+- Unit Tests - Because the classes requiring unit test are found in the CoreCommon module, the Unit Tests can also be found here. A separate package contains tests for the DataManager and Presenter classes defined in the CoreCommon module.
 
 The structure of the above looks as like so:
 
 <p align="center">
     <img src="images/package.png" alt="Package Diagram"/>
 </p>
-
-As an example of how this is put into practice, take a look at this diagram to demonstrate how the Browse screens retrieve their data:
-
-<p align="center">
-    <img src="images/share.png" alt="Shared Classes Diagram"/>
-</p>
-
-You can see here that the 3 Browse classes from the Mobile, Wear and TV packages all share the same BrowsePresenter, BrowseMvpView, DataManager and BourbonService. Because out 3 Browse classes all have exactly the same implementation, it makes complete sense to share this code where possible. The CoreCommon module allows us to share these classes, as well as the Data Models and the Unit Tests for the Presenter & Data classes.
-
 
 #Features
 ---------
