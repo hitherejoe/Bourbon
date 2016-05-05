@@ -5,6 +5,8 @@ import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.hitherejoe.bourbon.R;
+
 import com.hitherejoe.bourbon.ui.browse.BrowseActivity;
 import com.hitherejoe.bourboncorecommon.data.model.Comment;
 import com.hitherejoe.bourboncorecommon.data.model.Shot;
@@ -112,11 +114,11 @@ public class BrowseActivityTest {
         onView(withId(com.hitherejoe.bourbon.R.id.button_message))
                 .perform(click());
 
-        onView(withId(com.hitherejoe.bourbon.R.id.button_message))
+        onView(withId(R.id.button_message))
                 .check(doesNotExist());
-        onView(withId(com.hitherejoe.bourbon.R.id.text_message))
+        onView(withId(R.id.text_message))
                 .check(doesNotExist());
-        onView(withId(com.hitherejoe.bourbon.R.id.image_message))
+        onView(withId(R.id.image_message))
                 .check(doesNotExist());
         checkPostsDisplayOnRecyclerView(shots, 0);
     }
@@ -128,14 +130,14 @@ public class BrowseActivityTest {
         main.launchActivity(null);
 
         StubHelper.stubDataManagerGetShots(component, Single.just(shots));
-        onView(withId(com.hitherejoe.bourbon.R.id.button_message))
+        onView(withId(R.id.button_message))
                 .perform(click());
 
-        onView(withId(com.hitherejoe.bourbon.R.id.button_message))
+        onView(withId(R.id.button_message))
                 .check(doesNotExist());
-        onView(withId(com.hitherejoe.bourbon.R.id.text_message))
+        onView(withId(R.id.text_message))
                 .check(doesNotExist());
-        onView(withId(com.hitherejoe.bourbon.R.id.image_message))
+        onView(withId(R.id.image_message))
                 .check(doesNotExist());
         checkPostsDisplayOnRecyclerView(shots, 0);
     }
@@ -197,7 +199,7 @@ public class BrowseActivityTest {
 
     private void checkItemAtPosition(int position, Shot shot) {
         if (position > 0) {
-            onView(withId(com.hitherejoe.bourbon.R.id.browse_grid))
+            onView(withId(R.id.browse_grid))
                     .perform(RecyclerViewActions.actionOnItemAtPosition(position, click()));
         }
         onView(withItemText(shot.title, com.hitherejoe.bourbon.R.id.browse_grid)).check(matches(isDisplayed()));

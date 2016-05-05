@@ -5,6 +5,8 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.hitherejoe.bourbon.R;
+
 import com.hitherejoe.bourbon.ui.shot.ShotActivity;
 import com.hitherejoe.bourboncorecommon.data.model.Comment;
 import com.hitherejoe.bourboncorecommon.data.model.Shot;
@@ -51,11 +53,9 @@ public class ShotActivityTest {
         Intent intent = ShotActivity.newStartIntent(InstrumentationRegistry.getContext(), shot);
         main.launchActivity(intent);
 
-        onView(withId(com.hitherejoe.bourbon.R.id.image_shot))
+        onView(withId(R.id.image_shot))
                 .check(matches(isDisplayed()));
-        onView(withId(com.hitherejoe.bourbon.R.id.page_indicator))
-                .check(matches(isDisplayed()));
-        onView(withId(com.hitherejoe.bourbon.R.id.pager_shot))
+        onView(withId(R.id.pager_shot))
                 .check(matches(isDisplayed()));
     }
 
@@ -87,7 +87,7 @@ public class ShotActivityTest {
         main.launchActivity(intent);
 
         for (Comment comment : comments) {
-            onView(withId(com.hitherejoe.bourbon.R.id.pager_shot))
+            onView(withId(R.id.pager_shot))
                     .perform(swipeLeft());
             onView(withText(comment.body))
                     .check(matches(isDisplayed()));
