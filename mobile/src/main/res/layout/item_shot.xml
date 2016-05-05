@@ -12,16 +12,14 @@
         android:id="@+id/image_shot"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:transitionName="@string/transition_shot_image" />
+        android:scaleType="centerCrop" />
 
     <RelativeLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:transitionName="@string/transition_shot_header">
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/text_title"
@@ -32,8 +30,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:padding="16dp"
-            android:textSize="16sp"
-            android:transitionName="@string/transition_shot_title" />
+            android:textSize="@dimen/text_body" />
 
         <RelativeLayout
             android:id="@+id/layout_stats"
@@ -41,15 +38,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:gravity="center_vertical"
-            android:padding="16dp"
-            android:transitionName="@string/transition_shot_header">
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/image_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_heart_accent_accent_24dp"
-                android:transitionName="@string/transition_shot_like_image" />
+                android:src="@drawable/ic_heart_accent_accent_24dp" />
 
             <TextView
                 android:id="@+id/text_like_count"
@@ -60,8 +55,7 @@
                 android:ellipsize="end"
                 android:gravity="start"
                 android:maxLines="1"
-                android:textSize="@dimen/text_body"
-                android:transitionName="@string/transition_shot_like_text" />
+                android:textSize="@dimen/text_body" />
 
         </RelativeLayout>
 
