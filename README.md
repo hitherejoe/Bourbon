@@ -1,5 +1,6 @@
 Bourbon
 =======
+[![Build Status](https://travis-ci.org/hitherejoe/Bourbon.svg?branch=master)](https://travis-ci.org/hitherejoe/Bourbon) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Bourbon-brightgreen.svg?style=flat)](http://android-arsenal.com/details/3/3544) [![Sidebar] (https://img.shields.io/badge/Sidebar-06%2F05%2F2016-orange.svg)](http://sidebar.io/2016/5/6)
 
 <p align="center">
     <img src="images/header.png" alt="Bourbon Header"/>
