@@ -48,14 +48,13 @@ android {
 }
 
 dependencies {
-    final SUPPORT_LIBRARY_VERSION = '23.3.0'
     final DAGGER_VERSION = '2.2'
     def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
     compile project(':CoreCommon')
     compile 'de.hdodenhof:circleimageview:2.0.0'
-    compile "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
-    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:support-v4:${android_support_library_version}"
+    compile "com.android.support:recyclerview-v7:${android_support_library_version}"
 
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
 
