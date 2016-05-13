@@ -2,6 +2,7 @@ package com.hitherejoe.bourbon.ui.shot.widget;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -51,7 +52,7 @@ public class CommentView extends FrameLayout {
 
     public void setComment(Comment comment) {
         mComment = comment;
-        setBackgroundColor(Color.parseColor("#FFDFDFDF"));
+        setBackgroundColor(ContextCompat.getColor(getContext(), R.color.comment_background));
         Glide.with(getContext()).load(mComment.user.avatarUrl).into(mAvatarImage);
         mUserText.setText(mComment.user.username);
         mCommentText.setText(Html.fromHtml(mComment.body));
