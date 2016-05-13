@@ -3,12 +3,16 @@ package com.hitherejoe.bourboncorecommon.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User implements Parcelable {
 
     public int id;
     public String name;
     public String username;
+    @SerializedName("html_url")
     public String htmlUrl;
+    @SerializedName("avatar_url")
     public String avatarUrl;
 
     @Override
