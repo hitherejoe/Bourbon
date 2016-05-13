@@ -28,8 +28,6 @@ public class CommentView extends FrameLayout {
     @Bind(R.id.text_comment)
     TextView mCommentText;
 
-    private Comment mComment;
-
     public CommentView(Context context) {
         super(context);
         init();
@@ -51,11 +49,10 @@ public class CommentView extends FrameLayout {
     }
 
     public void setComment(Comment comment) {
-        mComment = comment;
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.comment_background));
-        Glide.with(getContext()).load(mComment.user.avatarUrl).into(mAvatarImage);
-        mUserText.setText(mComment.user.username);
-        mCommentText.setText(Html.fromHtml(mComment.body));
+        Glide.with(getContext()).load(comment.user.avatarUrl).into(mAvatarImage);
+        mUserText.setText(comment.user.username);
+        mCommentText.setText(Html.fromHtml(comment.body));
     }
 
     private void init() {
