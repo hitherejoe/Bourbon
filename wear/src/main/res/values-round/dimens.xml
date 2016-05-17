@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="browse_indicator_padding">32dp</dimen>
+    <dimen name="comment_indicator_padding_top">32dp</dimen>
+</resources>

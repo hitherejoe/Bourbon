@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="8dp" />
+        android:paddingBottom="@dimen/browse_indicator_padding"
+        android:paddingTop="@dimen/browse_indicator_padding" />
 
     <ProgressBar
         android:id="@+id/progress"
