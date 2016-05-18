@@ -37,10 +37,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         mComments = comments;
     }
 
-    public void setClickListener(ClickListener clickListener) {
-        mClickListener = clickListener;
-    }
-
     @Override
     public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater

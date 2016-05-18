@@ -8,4 +8,5 @@
     <color name="black">#000000</color>
     <color name="mid_gray">#9E9E9E</color>
     <color name="line_gray">#DEDEDE</color>
+    <color name="comment_background">#FFDFDFDF</color>
 </resources>

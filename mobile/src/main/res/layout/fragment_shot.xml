@@ -44,6 +44,7 @@
         style="@style/ShotContainerStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/shot_comments_margin_bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
@@ -57,17 +58,17 @@
                 android:id="@+id/layout_header"
                 style="@style/ShotHeaderStyle"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/white">
+                android:layout_height="60dp">
 
                 <TextView
                     android:id="@+id/text_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/image_like"
                     android:ellipsize="end"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:padding="16dp"
                     android:textSize="@dimen/text_body" />
 
@@ -106,8 +107,7 @@
                 android:id="@+id/layout_comments"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/layout_header"
-                android:layout_marginBottom="@dimen/shot_comments_margin_bottom">
+                android:layout_below="@id/view_separator">
 
                 <TextView
                     android:id="@+id/text_comments_title"
@@ -126,13 +126,9 @@
                     android:layout_height="match_parent"
                     android:layout_below="@id/text_comments_title"
                     android:layout_marginBottom="8dp"
-                    android:background="@color/white"
                     android:clipToPadding="false"
                     android:elevation="2dp"
-                    android:paddingBottom="16dp"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
-                    android:paddingTop="16dp"
+                    android:padding="8dp"
                     android:visibility="gone"
                     tools:listitem="@layout/item_comment" />
 
