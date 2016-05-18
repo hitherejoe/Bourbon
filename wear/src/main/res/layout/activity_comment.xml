@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/separator_line"
             android:layout_centerHorizontal="true"
-            android:paddingBottom="16dp"
+            android:paddingBottom="@dimen/comment_indicator_padding_top"
             android:paddingTop="10dp" />
 
     </RelativeLayout>

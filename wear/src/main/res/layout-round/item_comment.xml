@@ -32,10 +32,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
                 android:ellipsize="end"
+                android:gravity="center_horizontal"
                 android:maxLines="1"
                 android:textColor="@color/black_86p" />
 
@@ -53,6 +53,7 @@
             android:id="@+id/text_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:paddingEnd="12dp"
             android:paddingStart="12dp"
             android:textColor="@color/black_86p" />
