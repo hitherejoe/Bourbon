@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-    final SUPPORT_LIBRARY_VERSION = '23.3.0'
     final DAGGER_VERSION = '2.2'
     final DEXMAKER_VERSION = '1.4'
     final ESPRESSO_VERSION = '2.2.1'
@@ -62,7 +61,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'recyclerview-v7'
     }
-    compile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:support-annotations:${android_support_library_version}"
 
     compile "com.android.support.test.espresso:espresso-intents:$ESPRESSO_VERSION"
     compile "com.android.support.test:rules:$RUNNER_VERSION"
